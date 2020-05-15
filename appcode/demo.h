@@ -21,5 +21,7 @@
 
 #include "linkedlist.h"
 #include "imgui.h"
-
+#include "global.h"
 #include "icons.h"
+#include "loginpage.h"
+#include "helppage.h"
