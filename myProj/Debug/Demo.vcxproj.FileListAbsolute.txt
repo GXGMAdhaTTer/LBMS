@@ -1,0 +1,2 @@
+C:\Users\xiaoguogao\source\repos\myProj\demoprj-vs2010\Debug\Demo.exe
+C:\Users\xiaoguogao\source\repos\myProj\demoprj-vs2010\Debug\Demo.pdb

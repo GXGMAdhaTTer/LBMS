@@ -1,0 +1,2 @@
+C:\Users\xiaoguogao\source\repos\myProj\myProj\Debug\myDemo.exe
+C:\Users\xiaoguogao\source\repos\myProj\myProj\Debug\myDemo.pdb

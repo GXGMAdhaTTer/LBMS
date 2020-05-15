@@ -1,0 +1,45 @@
+﻿  demo.c
+  exceptio.c
+C:\Users\xiaoguogao\source\repos\myProj\libgraphics\exceptio.c(69,9): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\myProj\libgraphics\exceptio.c(79,13): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  genlib.c
+C:\Users\xiaoguogao\source\repos\myProj\libgraphics\genlib.c(121,5): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\myProj\libgraphics\genlib.c(136,9): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  graphics.c
+C:\Users\xiaoguogao\source\repos\myProj\libgraphics\graphics.c(790,5): warning C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\myProj\libgraphics\graphics.c(791,5): warning C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\myProj\libgraphics\graphics.c(822,18): warning C4101: “consoleRect”: 未引用的局部变量
+C:\Users\xiaoguogao\source\repos\myProj\libgraphics\graphics.c(1260,59): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\xiaoguogao\source\repos\myProj\libgraphics\graphics.c(1261,63): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\xiaoguogao\source\repos\myProj\libgraphics\graphics.c(1262,61): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\xiaoguogao\source\repos\myProj\libgraphics\graphics.c(1648,58): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+  random.c
+  simpio.c
+C:\Users\xiaoguogao\source\repos\myProj\libgraphics\simpio.c(145,13): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\myProj\libgraphics\simpio.c(157,5): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  strlib.c
+C:\Users\xiaoguogao\source\repos\myProj\libgraphics\strlib.c(53,5): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\myProj\libgraphics\strlib.c(54,5): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\myProj\libgraphics\strlib.c(82,5): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\myProj\libgraphics\strlib.c(109,5): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\myProj\libgraphics\strlib.c(139,15): warning C4018: “>”: 有符号/无符号不匹配
+C:\Users\xiaoguogao\source\repos\myProj\libgraphics\strlib.c(152,15): warning C4018: “>”: 有符号/无符号不匹配
+C:\Users\xiaoguogao\source\repos\myProj\libgraphics\strlib.c(194,5): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\myProj\libgraphics\strlib.c(206,9): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\myProj\libgraphics\strlib.c(216,5): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\myProj\libgraphics\strlib.c(226,9): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  imgui.c
+C:\Users\xiaoguogao\source\repos\myProj\simpleGUI\imgui.c(129,12): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\myProj\simpleGUI\imgui.c(130,12): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\myProj\simpleGUI\imgui.c(131,15): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\myProj\simpleGUI\imgui.c(132,15): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\myProj\simpleGUI\imgui.c(138,12): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\myProj\simpleGUI\imgui.c(139,12): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\myProj\simpleGUI\imgui.c(140,15): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\myProj\simpleGUI\imgui.c(141,15): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\myProj\simpleGUI\imgui.c(147,12): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\myProj\simpleGUI\imgui.c(148,12): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\myProj\simpleGUI\imgui.c(149,15): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\myProj\simpleGUI\imgui.c(150,15): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  正在生成代码...
+  Demo.vcxproj -> C:\Users\xiaoguogao\source\repos\myProj\demoprj-vs2010\Debug\Demo.exe
