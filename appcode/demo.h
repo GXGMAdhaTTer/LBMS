@@ -25,3 +25,4 @@
 #include "icons.h"
 #include "loginpage.h"
 #include "helppage.h"
+#include "initialfunction.h"

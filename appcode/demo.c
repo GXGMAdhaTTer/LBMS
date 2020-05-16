@@ -11,11 +11,8 @@ void KeyboardEventProcess(int key, int event)
 	uiGetKeyboard(key, event); // GUI获取键盘
 	display(); // 刷新显示
 }
-void MouseEventProcess(int x, int y, int button, int event)
-{
-	uiGetMouse(x, y, button, event); //GUI获取鼠标
-	display(); // 刷新显示
-}
+void MouseEventProcess(int x, int y, int button, int event);
+void CharEventProcess(char ch);
 
 void Main()
 {
@@ -28,9 +25,15 @@ void Main()
 	
 	registerKeyboardEvent(KeyboardEventProcess);
 	registerMouseEvent(MouseEventProcess);
+	registerCharEvent(CharEventProcess);
 	//InitConsole(); 
+	menu_flag = 1;
 	guide_page_flag = 0;
 	login_page_flag = 0;
+	about_page_flag = 0;
+	password_page_flag = 0;
+	initial_Administrator_flag = 0;
+	initial_Reader_flag = 0;
 }
 
 
@@ -85,9 +88,13 @@ void drawMenu()
 	if (selection > 0) selectedLabel = menuListUser[selection];
 	if (selection == 1) {
 		login_page_flag = 1;
+		guide_page_flag = 0;
+		about_page_flag = 0;
 	}
 	if (selection == 3) {
 		login_page_flag = 0;
+		guide_page_flag = 0;
+		about_page_flag = 0;
 	}
 
 	selection = menuList(GenUIID(0), x + 4 * w, y - h, w, wlist, h, menuListHelp, sizeof(menuListHelp) / sizeof(menuListHelp[0]));
@@ -95,18 +102,23 @@ void drawMenu()
 	if (selection == 1) {
 		guide_page_flag = 1;
 		about_page_flag = 0;
+		login_page_flag = 0;
 	}
 	if (selection == 2) {
 		guide_page_flag = 0;
 		about_page_flag = 1;
+		login_page_flag = 0;
 	}
 	
 	SetPenColor("Light Gray");
 	drawRectangle(x + 5 * w, y - h, winwidth-x-4*w, h, 1);
 	drawRectangle(0, winheight, winwidth, -h, 1);
+	drawRectangle(0, 0, winwidth, h, 1);
 	SetPenColor("Black");
 	drawLabel(winwidth/2-1.5,winheight-0.2, "Library management system");
+	drawLabel(0.3, 0.1, select_status);
 	SetPenColor("Light Gray");
+
 }
 
 #endif
@@ -126,6 +138,56 @@ void display()
 	if (about_page_flag) {
 		about_page(winwidth, winheight);
 	}
+	if (password_page_flag) {
+		password_page();
+	}
+	if (initial_Administrator_flag) {
+		initialAdministrator();
+	}
+	if (initial_Reader_flag) {
+		initialReader();
+	}
+}
+
+void MouseEventProcess(int x, int y, int button, int event)
+{
+	uiGetMouse(x, y, button, event);
+
+	double mmx, mmy;
+	mmx = ScaleXInches(x);
+	mmy = ScaleYInches(y);
+
+	//Show login status;
+	if (login_page_flag) {
+		if (mmx > 3.7 && mmx < 3.7+buttonWidth && mmy>5.4 && mmy < 5.4+buttonHeight) {
+			select_status = "Login as Administrator";
+		}
+		else if (mmx > 9.7 && mmx < 9.7+buttonWidth && mmy>5.4 && mmy < 5.4+buttonHeight) {
+			select_status = "Login as Reader";
+		}
+		else {
+			select_status = "";
+		}
+	}
+	//Show password status;
+	if (password_page_flag) {
+		if (mmx > 5.6 && mmx < 5.6 + buttonWidth && mmy>4.8 && mmy < 4.8 + buttonHeight) {
+			select_status = "Sign in";
+		}
+		else if (mmx > 8.4 && mmx < 8.4 + buttonWidth && mmy>4.8 && mmy < 4.8 + buttonHeight) {
+			select_status = "Sign up";
+		}
+		else {
+			select_status = "";
+		}
+	}
+
+	display(); // 刷新显示
+}
+
+void CharEventProcess(char ch) {
+	uiGetChar(ch);
+	display();
 }
 
 

@@ -21,9 +21,10 @@
 
 #include "linkedlist.h"
 #include "imgui.h"
-
+#include "global.h"
 #include "icons.h"
 
 void login_page();
+void password_page();
 
 #endif

@@ -46,13 +46,16 @@
     <ClCompile Include="..\appcode\HSL2RGB.h">
       <Filter>appcode</Filter>
     </ClCompile>
-    <ClCompile Include="icons.c">
-      <Filter>appcode</Filter>
-    </ClCompile>
     <ClCompile Include="..\appcode\loginpage.c">
       <Filter>appcode</Filter>
     </ClCompile>
     <ClCompile Include="..\appcode\helppage.c">
+      <Filter>appcode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\appcode\icons.c">
+      <Filter>appcode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\appcode\initialfunction.c">
       <Filter>appcode</Filter>
     </ClCompile>
   </ItemGroup>
@@ -90,9 +93,6 @@
     <ClInclude Include="..\appcode\demo.h">
       <Filter>appcode</Filter>
     </ClInclude>
-    <ClInclude Include="icons.h">
-      <Filter>appcode</Filter>
-    </ClInclude>
     <ClInclude Include="..\appcode\loginpage.h">
       <Filter>appcode</Filter>
     </ClInclude>
@@ -100,6 +100,12 @@
       <Filter>appcode</Filter>
     </ClInclude>
     <ClInclude Include="..\appcode\helppage.h">
+      <Filter>appcode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\appcode\icons.h">
+      <Filter>appcode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\appcode\initialfunction.h">
       <Filter>appcode</Filter>
     </ClInclude>
   </ItemGroup>

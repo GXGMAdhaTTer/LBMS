@@ -14,6 +14,8 @@
     <ClCompile Include="..\appcode\demo.c" />
     <ClCompile Include="..\appcode\helppage.c" />
     <ClCompile Include="..\appcode\HSL2RGB.h" />
+    <ClCompile Include="..\appcode\icons.c" />
+    <ClCompile Include="..\appcode\initialfunction.c" />
     <ClCompile Include="..\appcode\linkedlist.c" />
     <ClCompile Include="..\appcode\loginpage.c" />
     <ClCompile Include="..\libgraphics\exceptio.c" />
@@ -23,12 +25,13 @@
     <ClCompile Include="..\libgraphics\simpio.c" />
     <ClCompile Include="..\libgraphics\strlib.c" />
     <ClCompile Include="..\simpleGUI\imgui.c" />
-    <ClCompile Include="icons.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\appcode\demo.h" />
     <ClInclude Include="..\appcode\global.h" />
     <ClInclude Include="..\appcode\helppage.h" />
+    <ClInclude Include="..\appcode\icons.h" />
+    <ClInclude Include="..\appcode\initialfunction.h" />
     <ClInclude Include="..\appcode\linkedlist.h" />
     <ClInclude Include="..\appcode\loginpage.h" />
     <ClInclude Include="..\libgraphics\exception.h" />
@@ -40,10 +43,6 @@
     <ClInclude Include="..\libgraphics\simpio.h" />
     <ClInclude Include="..\libgraphics\strlib.h" />
     <ClInclude Include="..\simpleGUI\imgui.h" />
-    <ClInclude Include="icons.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
-    </ClInclude>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{3B1A6724-7DA5-4790-B9B6-EC346C10E842}</ProjectGuid>
