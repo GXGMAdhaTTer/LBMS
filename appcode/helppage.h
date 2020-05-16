@@ -21,6 +21,7 @@
 
 #include "linkedlist.h"
 #include "imgui.h"
+#include "global.h"
 
 void guide_page(double width, double height);
 void about_page(double width, double height);

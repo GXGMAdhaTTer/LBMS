@@ -49,13 +49,19 @@
     <ClCompile Include="..\appcode\loginpage.c">
       <Filter>appcode</Filter>
     </ClCompile>
-    <ClCompile Include="..\appcode\helppage.c">
-      <Filter>appcode</Filter>
-    </ClCompile>
     <ClCompile Include="..\appcode\icons.c">
       <Filter>appcode</Filter>
     </ClCompile>
     <ClCompile Include="..\appcode\initialfunction.c">
+      <Filter>appcode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\appcode\statusbar.c">
+      <Filter>appcode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\appcode\popupwindows.c">
+      <Filter>appcode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\appcode\booksmanagement.c">
       <Filter>appcode</Filter>
     </ClCompile>
   </ItemGroup>
@@ -99,13 +105,19 @@
     <ClInclude Include="..\appcode\global.h">
       <Filter>appcode</Filter>
     </ClInclude>
-    <ClInclude Include="..\appcode\helppage.h">
-      <Filter>appcode</Filter>
-    </ClInclude>
     <ClInclude Include="..\appcode\icons.h">
       <Filter>appcode</Filter>
     </ClInclude>
     <ClInclude Include="..\appcode\initialfunction.h">
+      <Filter>appcode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\appcode\statusbar.h">
+      <Filter>appcode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\appcode\popupwindows.h">
+      <Filter>appcode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\appcode\booksmanagement.h">
       <Filter>appcode</Filter>
     </ClInclude>
   </ItemGroup>

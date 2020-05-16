@@ -5,15 +5,17 @@ void initialAdministrator() {
 	usePredefinedButtonColors(4);
 	SetPenSize(1);
 	if (button(GenUIID(0), 1.7, 5.2, buttonWidth, buttonHeight, "Edit Books")) {
-
+		booksearch_page_flag = 1;
+		initial_Administrator_flag = 0;
+		select_status = "";
 	}
 
 	SetPenColor("Gray");
-	icon_CheckRequests(6, 6.8);
+	icon_CheckRequests(6.1, 6.8);
 	usePredefinedButtonColors(4);
 	SetPenSize(1);
 	if (button(GenUIID(0), 1.7+interval, 5.2, buttonWidth, buttonHeight, "Check Requests")) {
-
+		select_status = "";
 	}
 
 	SetPenColor("Gray");
@@ -21,7 +23,7 @@ void initialAdministrator() {
 	usePredefinedButtonColors(4);
 	SetPenSize(1);
 	if (button(GenUIID(0), 1.7+2*interval, 5.2, buttonWidth, buttonHeight, "Readers")) {
-
+		select_status = "";
 	}
 
 	SetPenColor("Gray");
@@ -29,7 +31,7 @@ void initialAdministrator() {
 	usePredefinedButtonColors(4);
 	SetPenSize(1);
 	if (button(GenUIID(0), 1.7+3*interval, 5.2, buttonWidth, buttonHeight, "Statistics")) {
-
+		select_status = "";
 	}
 }
 
@@ -39,7 +41,9 @@ void initialReader() {
 	usePredefinedButtonColors(4);
 	SetPenSize(1);
 	if (button(GenUIID(0), 1.7, 5.2, buttonWidth, buttonHeight, "Reserve")) {
-
+		booksearch_page_flag = 1;
+		initial_Reader_flag = 0;
+		select_status = "";
 	}
 
 	SetPenColor("Gray");
@@ -47,7 +51,7 @@ void initialReader() {
 	usePredefinedButtonColors(4);
 	SetPenSize(1);
 	if (button(GenUIID(0), 1.7 + interval, 5.2, buttonWidth, buttonHeight, "Reservation")) {
-
+		select_status = "";
 	}
 
 	SetPenColor("Gray");
@@ -55,7 +59,7 @@ void initialReader() {
 	usePredefinedButtonColors(4);
 	SetPenSize(1);
 	if (button(GenUIID(0), 1.7 + 2 * interval, 5.2, buttonWidth, buttonHeight, "Return")) {
-
+		select_status = "";
 	}
 
 	SetPenColor("Gray");
@@ -63,6 +67,7 @@ void initialReader() {
 	usePredefinedButtonColors(4);
 	SetPenSize(1);
 	if (button(GenUIID(0), 1.7 + 3 * interval, 5.2, buttonWidth, buttonHeight, "Account")) {
-
+		accountsetting_page_flag = 1;
+		select_status = "";
 	}
 }

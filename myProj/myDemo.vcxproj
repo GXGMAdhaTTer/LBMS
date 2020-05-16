@@ -11,13 +11,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\appcode\booksmanagement.c" />
     <ClCompile Include="..\appcode\demo.c" />
-    <ClCompile Include="..\appcode\helppage.c" />
     <ClCompile Include="..\appcode\HSL2RGB.h" />
     <ClCompile Include="..\appcode\icons.c" />
     <ClCompile Include="..\appcode\initialfunction.c" />
     <ClCompile Include="..\appcode\linkedlist.c" />
     <ClCompile Include="..\appcode\loginpage.c" />
+    <ClCompile Include="..\appcode\popupwindows.c" />
+    <ClCompile Include="..\appcode\statusbar.c" />
     <ClCompile Include="..\libgraphics\exceptio.c" />
     <ClCompile Include="..\libgraphics\genlib.c" />
     <ClCompile Include="..\libgraphics\graphics.c" />
@@ -27,13 +29,15 @@
     <ClCompile Include="..\simpleGUI\imgui.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\appcode\booksmanagement.h" />
     <ClInclude Include="..\appcode\demo.h" />
     <ClInclude Include="..\appcode\global.h" />
-    <ClInclude Include="..\appcode\helppage.h" />
     <ClInclude Include="..\appcode\icons.h" />
     <ClInclude Include="..\appcode\initialfunction.h" />
     <ClInclude Include="..\appcode\linkedlist.h" />
     <ClInclude Include="..\appcode\loginpage.h" />
+    <ClInclude Include="..\appcode\popupwindows.h" />
+    <ClInclude Include="..\appcode\statusbar.h" />
     <ClInclude Include="..\libgraphics\exception.h" />
     <ClInclude Include="..\libgraphics\extgraph.h" />
     <ClInclude Include="..\libgraphics\gcalloc.h" />

@@ -1,16 +1,9 @@
 #include "demo.h"
 /*To load headfiles.*/
 
-#define MENU
-
 void DisplayClear(void);
 void display(void);
-
-void KeyboardEventProcess(int key, int event)
-{
-	uiGetKeyboard(key, event); // GUI获取键盘
-	display(); // 刷新显示
-}
+void KeyboardEventProcess(int key, int event);
 void MouseEventProcess(int x, int y, int button, int event);
 void CharEventProcess(char ch);
 
@@ -27,6 +20,8 @@ void Main()
 	registerMouseEvent(MouseEventProcess);
 	registerCharEvent(CharEventProcess);
 	//InitConsole(); 
+
+	//initiate pages
 	menu_flag = 1;
 	guide_page_flag = 0;
 	login_page_flag = 0;
@@ -34,11 +29,12 @@ void Main()
 	password_page_flag = 0;
 	initial_Administrator_flag = 0;
 	initial_Reader_flag = 0;
+	signup_page_flag = 0;
+	accountsetting_page_flag = 0;
+	booksearch_page_flag = 0;
 }
 
 
-#if defined(MENU)
-// 菜单演示程序
 void drawMenu()
 {
 	usePredefinedMenuColors(4);
@@ -65,12 +61,12 @@ void drawMenu()
 
 	double fH = GetFontHeight();
 	
-	double x = 0; //fH/8;
-	double h = fH * 1.5; // 控件高度
+	double x = 0;
+	double h = fH * 1.5;
 	double y = winheight - h;
-	double w = 1; // 控件宽度
+	double w = 1;
 	double wlist = 2;
-	double xindent = winheight / 20; // 缩进
+	double xindent = winheight / 20;
 	int    selection;
 
 	selection = menuList(GenUIID(0), x, y - h, w, wlist, h, menuListFile, sizeof(menuListFile) / sizeof(menuListFile[0]));
@@ -80,6 +76,9 @@ void drawMenu()
 
 	selection = menuList(GenUIID(0), x + w, y - h, w, wlist, h, menuListBooks, sizeof(menuListBooks) / sizeof(menuListBooks[0]));
 	if (selection > 0) selectedLabel = menuListBooks[selection];
+	if (selection == 2) {
+		booksearch_page_flag = 1;
+	}
 
 	selection = menuList(GenUIID(0), x + 2 * w, y - h, w, wlist, h, menuListBorrow, sizeof(menuListBorrow) / sizeof(menuListBorrow[0]));
 	if (selection > 0) selectedLabel = menuListBorrow[selection];
@@ -90,11 +89,18 @@ void drawMenu()
 		login_page_flag = 1;
 		guide_page_flag = 0;
 		about_page_flag = 0;
+		signup_page_flag = 0;
+		initial_Administrator_flag = 0;
+		initial_Reader_flag = 0;
+	}
+	if (selection == 2) {
+		signup_page_flag = 1;
 	}
 	if (selection == 3) {
 		login_page_flag = 0;
 		guide_page_flag = 0;
 		about_page_flag = 0;
+		signup_page_flag = 0;
 	}
 
 	selection = menuList(GenUIID(0), x + 4 * w, y - h, w, wlist, h, menuListHelp, sizeof(menuListHelp) / sizeof(menuListHelp[0]));
@@ -103,6 +109,7 @@ void drawMenu()
 		guide_page_flag = 1;
 		about_page_flag = 0;
 		login_page_flag = 0;
+		
 	}
 	if (selection == 2) {
 		guide_page_flag = 0;
@@ -118,25 +125,18 @@ void drawMenu()
 	drawLabel(winwidth/2-1.5,winheight-0.2, "Library management system");
 	drawLabel(0.3, 0.1, select_status);
 	SetPenColor("Light Gray");
-
 }
-
-#endif
 
 void display()
 {
 	DisplayClear();
-#if defined(MENU)
-	drawMenu();
-#endif
+
+	//normalwindows
+	if (menu_flag) {
+		drawMenu();
+	}
 	if (login_page_flag) {
 		login_page();
-	}
-	if (guide_page_flag) {
-		guide_page(winwidth, winheight);
-	}
-	if (about_page_flag) {
-		about_page(winwidth, winheight);
 	}
 	if (password_page_flag) {
 		password_page();
@@ -147,44 +147,39 @@ void display()
 	if (initial_Reader_flag) {
 		initialReader();
 	}
-}
+	if (booksearch_page_flag) {
+		booksearch_page();
+	}
 
+	//popupwindows
+	if (signup_page_flag) {
+		signupwindow();
+	}
+	if (accountsetting_page_flag) {
+		accountsettingwindow();
+	}
+	if (guide_page_flag) {
+		guidewindow();
+	}
+	if (about_page_flag) {
+		aboutwindow();
+	}
+}
 void MouseEventProcess(int x, int y, int button, int event)
 {
 	uiGetMouse(x, y, button, event);
 
-	double mmx, mmy;
-	mmx = ScaleXInches(x);
-	mmy = ScaleYInches(y);
-
-	//Show login status;
-	if (login_page_flag) {
-		if (mmx > 3.7 && mmx < 3.7+buttonWidth && mmy>5.4 && mmy < 5.4+buttonHeight) {
-			select_status = "Login as Administrator";
-		}
-		else if (mmx > 9.7 && mmx < 9.7+buttonWidth && mmy>5.4 && mmy < 5.4+buttonHeight) {
-			select_status = "Login as Reader";
-		}
-		else {
-			select_status = "";
-		}
-	}
-	//Show password status;
-	if (password_page_flag) {
-		if (mmx > 5.6 && mmx < 5.6 + buttonWidth && mmy>4.8 && mmy < 4.8 + buttonHeight) {
-			select_status = "Sign in";
-		}
-		else if (mmx > 8.4 && mmx < 8.4 + buttonWidth && mmy>4.8 && mmy < 4.8 + buttonHeight) {
-			select_status = "Sign up";
-		}
-		else {
-			select_status = "";
-		}
-	}
-
+	double mx, my;
+	mx = ScaleXInches(x);
+	my = ScaleYInches(y);
+	showstatus(mx, my);
+	display();
+}
+void KeyboardEventProcess(int key, int event)
+{
+	uiGetKeyboard(key, event); // GUI获取键盘
 	display(); // 刷新显示
 }
-
 void CharEventProcess(char ch) {
 	uiGetChar(ch);
 	display();
