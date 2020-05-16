@@ -23,5 +23,5 @@
 #include "imgui.h"
 #include "global.h"
 void booksearch_page();
-bool dotSelector();
+void search_by();
 #endif
