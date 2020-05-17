@@ -603,3 +603,18 @@ void drawLabel(double x, double y, char *label)
 		DrawTextString(label);
 	}
 }
+
+//¾ÓÖÐ×Ö·û´®
+void drawMidLabel(double x, double y, double w, double h, char* label, char labelAlignment, char* labelColor) {
+	double fa = GetFontAscent();
+	if (label && strlen(label) > 0) {
+		mySetPenColor(labelColor);
+		if (labelAlignment == 'L')
+			MovePen(x + fa / 2, y + h / 2 - fa / 2);
+		else if (labelAlignment == 'R')
+			MovePen(x + w - fa / 2 - TextStringWidth(label), y + h / 2 - fa / 2);
+		else // if( labelAlignment=='C'
+			MovePen(x + (w - TextStringWidth(label)) / 2, y + h / 2 - fa / 2);
+		DrawTextString(label);
+	}
+}

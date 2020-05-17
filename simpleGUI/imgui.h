@@ -196,7 +196,7 @@ void drawLabel(double x, double y, char *label);
 /* 画一个矩形 */
 void drawRectangle(double x, double y, double w, double h, int fillflag);
 
-/* 显示带字符串标签的矩形
+/* 显示带字符串标签的矩形+字符串
  * 
  * xalignment - 标签和矩形的对齐方式
  *              'L' - 靠左
@@ -207,5 +207,6 @@ void drawRectangle(double x, double y, double w, double h, int fillflag);
  *            0 不填充
  */
 void drawBox(double x, double y, double w, double h, int fillflag, char *label, char xalignment, char *labelColor);
+void drawMidLabel(double x, double y, double w, double h, char* label, char labelAlignment, char* labelColor);
 
 #endif // define ____ui_button_h______

@@ -1,6 +1,8 @@
 #include "demo.h"
 /*To load headfiles.*/
 
+// ÎÒ°®Äã
+
 void DisplayClear(void);
 void display(void);
 void KeyboardEventProcess(int key, int event);
@@ -82,6 +84,9 @@ void drawMenu()
 
 	selection = menuList(GenUIID(0), x + 2 * w, y - h, w, wlist, h, menuListBorrow, sizeof(menuListBorrow) / sizeof(menuListBorrow[0]));
 	if (selection > 0) selectedLabel = menuListBorrow[selection];
+	if (selection == 1) {
+		booksearch_page_flag = 1;
+	}
 
 	selection = menuList(GenUIID(0), x + 3 * w, y - h, w, wlist, h, menuListUser, sizeof(menuListUser) / sizeof(menuListUser[0]));
 	if (selection > 0) selectedLabel = menuListUser[selection];

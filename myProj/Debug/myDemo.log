@@ -1,5 +1,4 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(467,5): warning MSB8028: 中间目录(Debug\)包含从另一个项目(Demo.vcxproj)共享的文件。   这会导致错误的清除和重新生成行为。
   booksmanagement.c
-C:\Users\xiaoguogao\source\repos\GXGProj\appcode\booksmanagement.c(31,14): warning C4047: “函数”:“char”与“char [1]”的间接级别不同
-C:\Users\xiaoguogao\source\repos\GXGProj\appcode\booksmanagement.c(31,14): warning C4024: “drawBox”: 形参和实参 7 的类型不同
+C:\Users\xiaoguogao\source\repos\GXGProj\appcode\booksmanagement.c(159,38): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
   myDemo.vcxproj -> C:\Users\xiaoguogao\source\repos\GXGProj\myProj\Debug\myDemo.exe

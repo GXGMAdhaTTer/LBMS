@@ -1,15 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workbench ActiveDocument="../appcode/booksmanagement.c">
     <Files>
-      <File FileName="../appcode/booksmanagement.c" Line="38" Column="42" />
+      <File FileName="../appcode/booksmanagement.c" Line="22" Column="14" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="myProj" expanded="True">
-            <Node name="myDemo" expanded="True">
-              <Node name="booksmanagement.c" selected="True" />
-            </Node>
+            <Node name="myDemo" expanded="True" selected="True" />
           </Node>
         </State>
       </Pad>

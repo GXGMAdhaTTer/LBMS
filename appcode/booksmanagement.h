@@ -24,4 +24,7 @@
 #include "global.h"
 void booksearch_page();
 void search_by();
+void order_filter();
+void InitBookList();
+void DrawBooks(void* curbook);
 #endif
