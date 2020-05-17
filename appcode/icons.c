@@ -1,4 +1,5 @@
 #include "icons.h"
+
 void icon_Administrator(double cx, double cy) {
 	string color = GetPenColor();
 	SetPenColor("Gray");
@@ -167,3 +168,6 @@ void icon_Account(double rx, double ry) {
 	MovePen(rx, ry - 0.5);
 	DrawLine(0.5, 0);
 }
+
+
+

@@ -92,7 +92,6 @@ void accountsettingwindow() {
 		accountsetting_page_flag = 0;
 	}
 }
-
 void guidewindow() {
 	SetPenColor("White");
 	drawRectangle(3, 2.6, 10, 6.8, 1);
@@ -106,7 +105,6 @@ void guidewindow() {
 		guide_page_flag = 0;
 	}
 }
-
 void aboutwindow() {
 	SetPenColor("White");
 	drawRectangle(3, 2.6, 10, 6.8, 1);
@@ -120,3 +118,5 @@ void aboutwindow() {
 		about_page_flag = 0;
 	}
 }
+
+

@@ -15,6 +15,9 @@ bool initial_Reader_flag;
 bool signup_page_flag;
 bool accountsetting_page_flag;
 bool booksearch_page_flag;
+bool bookeditwindow_page_flag;
+bool readerinformationwindow_page_flag;
+
 
 bool charactor;
 
@@ -28,3 +31,4 @@ static char Reader_Password[10] = "";
 static char Reader_Name[10] = "";
 static char Reader_Gender[10] = "";
 static char Reader_Employer[10] = "";
+

@@ -209,4 +209,7 @@ void drawRectangle(double x, double y, double w, double h, int fillflag);
 void drawBox(double x, double y, double w, double h, int fillflag, char *label, char xalignment, char *labelColor);
 void drawMidLabel(double x, double y, double w, double h, char* label, char labelAlignment, char* labelColor);
 
+double angle2rad(double angle);
+void draw_Star(double cx, double cy, double r, int fillflag, char* color);
+int star_button(int id, double x, double y, double r);
 #endif // define ____ui_button_h______

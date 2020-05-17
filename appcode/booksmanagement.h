@@ -25,6 +25,6 @@
 void booksearch_page();
 void search_by();
 void order_filter();
-void InitBookList();
-void DrawBooks(void* curbook);
+void DrawBooks(int x);
+void showbookinformationwindow(int x);
 #endif

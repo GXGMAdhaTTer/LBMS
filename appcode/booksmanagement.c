@@ -1,29 +1,31 @@
 #include "booksmanagement.h"
-char searchKeyword[20] = "";
-double stateinterval = 1.2;
-bool showbook_flag = 0;
-
-//state struct
-struct statebutton {
-	bool state;
-}state_isbn, state_title, state_author, state_keyword, state_filter_isbn,state_filter_title,state_filter_author;
-
-//book struct
-typedef struct {
+struct myBook {
 	double cx, cy;
 	string ISBNcode;
 	string Title;
 	string Author;
 	string Press;
 	int Publicationdate;
+	string Class;
+	string Keywords;
+	string State;
+	bool isbookinformationshow;
+	int collectnum;
 
-}*BookT;
+}GXGBook[10];
+char searchKeyword[20] = "";
+double stateinterval = 1.2;
+bool showbook_flag = 0;
+int k = 10;//k<=12
+//state struct
+int pagemax;
+int flappage = 0;
 
-void InitBookList();
-void DrawBooks(void* curbook);
-//BookT FindBook(linkedlistADT alist, int sum);
-linkedlistADT booklist;
-//BookT curBook = NULL;
+struct statebutton {
+	bool state;
+}state_isbn, state_title, state_author, state_keyword, state_filter_isbn,state_filter_title,state_filter_author,iscollect;
+
+//book struct
 
 void booksearch_page() {
 	setTextBoxColors("Light Gray", "Black", "Gray", "Black", 0);
@@ -34,17 +36,32 @@ void booksearch_page() {
 	drawLabel(4.5, 9.4, "Search By");
 	usePredefinedButtonColors(4);
 
-	booklist = NewLinkedList();
-	InitBookList();
-
 	//Search Button
 	if (button(GenUIID(0), 9, 10, buttonWidth, buttonHeight, "Search")) {
 		select_status = "";
 		showbook_flag = 1;
 	}
 
+	//initial booklist
+	for (int x=0; x < k; x++) {
+		GXGBook[x].cx = 2;
+		GXGBook[x].cy = 7.5 - x * 0.5;
+
+		GXGBook[x].ISBNcode = "9787100000000";
+		GXGBook[x].Title = "大威天龙";
+		GXGBook[x].Author = "法海";
+		GXGBook[x].Press = "金山寺";
+		GXGBook[x].Publicationdate = 2020;
+		GXGBook[x].Class = "Fiction";
+		GXGBook[x].Keywords = "大威天龙 大罗法咒 世尊地藏";
+		GXGBook[x].State = "Reservable";
+
+		GXGBook[x].collectnum = 56;
+	}
+
+	//show booklist
 	if (showbook_flag) {
-		TraverseLinkedList(booklist, DrawBooks);
+		DrawBooks(k);
 	}
 
 	//Search By
@@ -55,7 +72,7 @@ void booksearch_page() {
 
 	//sheet
 	SetPenColor("Light Gray");
-	drawRectangle(2, 1, 12, 8, 0);
+	drawRectangle(2, 2, 12, 7, 0);
 	drawBox(2, 8.5, 12, 0.5, 1, "Books", 'M', "Black");
 
 	//dividing line
@@ -66,6 +83,24 @@ void booksearch_page() {
 	//sheethead
 	drawMidLabel(9.5, 8, 2.5, 0.5, "Press", 'M', "Black");
 	drawMidLabel(12, 8, 2, 0.5,"Publication date", 'M', "Black");
+
+	showbookinformationwindow(k);
+
+	pagemax = k / 12 + 1;
+
+	if (flappage >= 0) {
+		usePredefinedButtonColors(4);
+		if (flappage > 0){
+			if (button(GenUIID(0), 5.6, 1.2, buttonWidth, buttonHeight, "<   Previous")) {
+				flappage--;
+			}
+		}
+		if (flappage < pagemax) {
+			if (button(GenUIID(0), 8.4, 1.2, buttonWidth, buttonHeight, "Next   >")) {
+				flappage++;
+			}
+		}
+	}
 	
 }
 
@@ -125,37 +160,89 @@ void order_filter() {
 	}
 }
 
-void InitBookList() {
-	BookT aptr;
-	int i;
-	for (i = 0; i < 1; i++) {
-		aptr = GetBlock(sizeof(*aptr));
-		aptr->cx = 2;
-		aptr->cy = 7.5;
+void DrawBooks(int x) {
+	for (int m = 0; m < x; m++) {
+		double ccx = GXGBook[m].cx;
+		double ccy = GXGBook[m].cy;
+		char str[5];
+		setButtonColors("white", "White", "Light Gray", "Gray", 1);
+		if (button(GenUIID(m), ccx, ccy, 12, buttonHeight, " ")) {
+			GXGBook[m].isbookinformationshow = 1;
+		}
 
-		aptr->ISBNcode = "9787100000000";
-		aptr->Title = "大威天龙";
-		aptr->Author = "法海";
-		aptr->Press = "金山寺";
-		aptr->Publicationdate = 2020;
+		drawMidLabel(ccx, ccy, 2.5, 0.5, GXGBook[m].ISBNcode, 'M', "Black");
+		drawMidLabel(ccx + 2.5, ccy, 2.5, 0.5, GXGBook[m].Title, 'M', "Black");
+		drawMidLabel(ccx + 5, ccy, 2.5, 0.5, GXGBook[m].Author, 'M', "Black");
+		drawMidLabel(ccx + 7.5, ccy, 2.5, 0.5, GXGBook[m].Press, 'M', "Black");
+		drawMidLabel(ccx + 10, ccy, 2, 0.5, _itoa(GXGBook[m].Publicationdate, str, 10), 'M', "Black");
 
-		InsertNode(booklist, NULL, aptr);
+		MovePen(ccx + 0.2, ccy + 0.01);
+		SetPenSize(2);
+		SetPenColor("Light Gray");
+		DrawLine(11.6, 0);
+		SetPenSize(1);
 	}
+	
 }
 
-void DrawBooks(void* curbook) {
-	BookT aptr = (BookT)curbook;
-	double ccx = aptr->cx;
-	double ccy = aptr->cy;
-	char str[5];
-	setButtonColors("white", "White", "Light Gray", "Gray", 1);
-	if (button(GenUIID(0), aptr->cx, aptr->cy, 12, buttonHeight, "")) {
+void showbookinformationwindow(int x) {
+	for (int n = 0; n < x; n++) {
+		if (GXGBook[n].isbookinformationshow) {
+			SetPenColor("White");
+			drawRectangle(3, 2, 10, 8, 1);
+			SetPenColor("Black");
+			drawRectangle(3, 2, 10, 8, 0);
 
+			double infox = 4;
+			double infoy = 8.7;
+			double infowid = 2;
+			double infointerval = 0.7;
+			char str[5];
+			drawMidLabel(infox, infoy, infowid, 0.5, "ISBN", 'R', "Black");
+			drawMidLabel(infox, infoy - infointerval*1, infowid, 0.5, "Title", 'R', "Black");
+			drawMidLabel(infox, infoy - infointerval * 2, infowid, 0.5, "Author", 'R', "Black");
+			drawMidLabel(infox, infoy - infointerval * 3, infowid, 0.5, "Press", 'R', "Black");
+			drawMidLabel(infox, infoy - infointerval * 4, infowid, 0.5, "Publication date", 'R', "Black");
+			drawMidLabel(infox, infoy - infointerval * 5, infowid, 0.5, "Class", 'R', "Black");
+			drawMidLabel(infox, infoy - infointerval * 6, infowid, 0.5, "Keywords", 'R', "Black");
+			drawMidLabel(infox, infoy - infointerval * 7, infowid, 0.5, "State", 'R', "Black");
+
+			drawMidLabel(infox+2.5, infoy, infowid*2, 0.5, "ISBN", 'L', "Black");
+			drawMidLabel(infox+2.5, infoy - infointerval * 1, infowid*2, 0.5, GXGBook[n].ISBNcode, 'L', "Black");
+			drawMidLabel(infox+2.5, infoy - infointerval * 2, infowid*2, 0.5, GXGBook[n].Title, 'L', "Black");
+			drawMidLabel(infox+2.5, infoy - infointerval * 3, infowid*2, 0.5, GXGBook[n].Press, 'L', "Black");
+			drawMidLabel(infox+2.5, infoy - infointerval * 4, infowid*2, 0.5, _itoa(GXGBook[n].Publicationdate, str, 10), 'L', "Black");
+			drawMidLabel(infox+2.5, infoy - infointerval * 5, infowid*2, 0.5, GXGBook[n].Class, 'L', "Black");
+			drawMidLabel(infox+2.5, infoy - infointerval * 6, infowid*2, 0.5, GXGBook[n].Keywords, 'L', "Black");
+			drawMidLabel(infox+2.5, infoy - infointerval * 7, infowid*2, 0.5, GXGBook[n].State, 'L', "Black");
+		
+
+			int collected = GXGBook[n].collectnum + 1;
+			if (iscollect.state) { 
+				setButtonColors("Light Gray", "Orange", "Gray", "Red", 1);
+				/*GXGBook[n].collectnum++;*/
+			}
+			else if (!iscollect.state) {
+				setButtonColors("White", "Light Gray", "Light Gray", "Gray", 1);
+			}
+			if (star_button(GenUIID(0), 11.5, 9, 0.25)) {
+				select_status = "";
+				iscollect.state = !iscollect.state;
+			}
+
+			drawMidLabel(11.25, 8.2, 0.5, 0.5, _itoa(GXGBook[n].collectnum, str, 10), 'M', "Black");
+
+			usePredefinedButtonColors(4);
+			if (button(GenUIID(0), 5.6, 2.3, buttonWidth, buttonHeight, "Comfirm")) {
+				GXGBook[n].isbookinformationshow = 0;
+			}
+
+			if (button(GenUIID(0), 8.4, 2.3, buttonWidth, buttonHeight, "Cancel")) {
+				GXGBook[n].isbookinformationshow = 0;
+			}
+
+		}
 	}
-	drawMidLabel(ccx, ccy, 2.5, 0.5, aptr->ISBNcode, 'M', "Black");
-	drawMidLabel(ccx + 2.5, ccy, 2.5, 0.5, aptr->Title, 'M', "Black");
-	drawMidLabel(ccx + 5, ccy, 2.5, 0.5, aptr->Author, 'M', "Black");
-	drawMidLabel(ccx + 7.5, ccy, 2.5, 0.5, aptr->Press, 'M', "Black");
-	drawMidLabel(ccx + 10, ccy, 2, 0.5, itoa(aptr->Publicationdate, str, 10), 'M', "Black");
-
+	
 }
+

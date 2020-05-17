@@ -35,12 +35,13 @@
 #include <winuser.h>
 
 #include <time.h>
+#include <math.h>
 
 #include "imgui.h"
 
 #define KMOD_SHIFT 0x01
 #define KMOD_CTRL  0x02
-
+#define PI 3.14159265
 
 /* 鼠标和空间状态 */
 typedef struct {
@@ -617,4 +618,103 @@ void drawMidLabel(double x, double y, double w, double h, char* label, char labe
 			MovePen(x + (w - TextStringWidth(label)) / 2, y + h / 2 - fa / 2);
 		DrawTextString(label);
 	}
+}
+
+double angle2rad(double angle) {
+	return angle * PI / 180;
+}
+
+void draw_Star(double cx, double cy, double r, int fillflag, char* color) {
+	double sx;
+	double sy;
+	double sin36 = sin(angle2rad(36));
+	double cos36 = cos(angle2rad(36));
+	double sin18 = sin(angle2rad(18));
+	double cos18 = cos(angle2rad(18));
+	double tan18 = tan(angle2rad(18));
+	sx = cx - r * (1 + sin18);
+	sy = cy + r * (1 + sin18) * tan18;
+	MovePen(sx, sy);
+	SetPenSize(1);
+	SetPenColor(color);
+	StartFilledRegion(1);
+	DrawLine(r, 0);
+	DrawLine(r * sin18, r * cos18);
+	DrawLine(r * sin18, -r * cos18);
+	DrawLine(r, 0);
+	DrawLine(-r * cos36, -r * sin36);
+	DrawLine(r * sin18, -r * cos18);
+	DrawLine(-r * cos36, r * sin36);
+	DrawLine(-r * cos36, -r * sin36);
+	DrawLine(r * sin18, r * cos18);
+	DrawLine(-r * cos36, r * sin36);
+	EndFilledRegion();
+}
+int star_button(int id, double x, double y, double r)
+{
+	char* frameColor = gs_button_color.frame;
+	char* labelColor = gs_button_color.label;
+	double movement = 0.2 * r;
+	double shrink = 0.15 * r;
+	double sinkx = 0, sinky = 0;
+	
+	//int isHotItem = 0;
+
+	if (inBox(gs_UIState.mousex, gs_UIState.mousey, x-r, x + r, y-r, y + r)) {
+		frameColor = gs_button_color.hotFrame;
+		labelColor = gs_button_color.hotLabel;
+		gs_UIState.actingMenu = 0; // menu lose focus
+		if (gs_UIState.mousedown) {
+			gs_UIState.clickedItem = id;
+			sinkx = movement;
+			sinky = -movement;
+		}
+	}
+	else {
+		if (gs_UIState.clickedItem == id)
+			gs_UIState.clickedItem = 0;
+	}
+
+	// If no widget has keyboard focus, take it
+	if (gs_UIState.kbdItem == 0)
+		gs_UIState.kbdItem = id;
+	// If we have keyboard focus, we'll need to process the keys
+	if (gs_UIState.kbdItem == id && gs_UIState.keyPress == VK_TAB)
+	{
+		// If tab is pressed, lose keyboard focus.
+		// Next widget will grab the focus.
+		gs_UIState.kbdItem = 0;
+		// If shift was also pressed, we want to move focus
+		// to the previous widget instead.
+		if (gs_UIState.keyModifiers & KMOD_SHIFT)
+			gs_UIState.kbdItem = gs_UIState.lastItem;
+		gs_UIState.keyPress = 0;
+	}
+	gs_UIState.lastItem = id;
+
+	// draw the button
+	//drawBox(x + sinkx, y + sinky, w, h, gs_button_color.fillflag,
+	//	label, 'C', labelColor);
+	draw_Star(x+sinkx, y+sinky, r, gs_button_color.fillflag, labelColor);
+	if (gs_button_color.fillflag) {
+		//drawRectangle(x + sinkx, y + sinky, w, h, 0);
+		draw_Star(x + sinkx, y + sinky, r, 0, labelColor);
+	}
+
+	// 画键盘提示, show a small ractangle frane
+	if (gs_UIState.kbdItem == id) {
+		mySetPenColor(labelColor);
+		
+		draw_Star(x + sinkx, y + sinky, r-shrink, 0, labelColor);
+	}
+
+	if (gs_UIState.clickedItem == id && // must be clicked before
+		!gs_UIState.mousedown)   // but now mouse button is up
+	{
+		gs_UIState.clickedItem = 0;
+		gs_UIState.kbdItem = id;
+		return 1;
+	}
+
+	return 0;
 }
