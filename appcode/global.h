@@ -14,8 +14,8 @@ bool initial_Administrator_flag;
 bool initial_Reader_flag;
 bool signup_page_flag;
 bool accountsetting_page_flag;
-bool booksearch_page_flag;
-bool bookeditwindow_page_flag;
+bool bookreserve_page_flag;
+bool bookedit_page_flag;
 bool readerinformationwindow_page_flag;
 
 

@@ -33,7 +33,8 @@ void Main()
 	initial_Reader_flag = 0;
 	signup_page_flag = 0;
 	accountsetting_page_flag = 0;
-	booksearch_page_flag = 0;
+	bookreserve_page_flag = 0;
+	bookedit_page_flag = 0;
 }
 
 
@@ -79,13 +80,16 @@ void drawMenu()
 	selection = menuList(GenUIID(0), x + w, y - h, w, wlist, h, menuListBooks, sizeof(menuListBooks) / sizeof(menuListBooks[0]));
 	if (selection > 0) selectedLabel = menuListBooks[selection];
 	if (selection == 2) {
-		booksearch_page_flag = 1;
+		bookedit_page_flag = 1;
+	}
+	if (selection == 3) {
+		bookedit_page_flag = 1;
 	}
 
 	selection = menuList(GenUIID(0), x + 2 * w, y - h, w, wlist, h, menuListBorrow, sizeof(menuListBorrow) / sizeof(menuListBorrow[0]));
 	if (selection > 0) selectedLabel = menuListBorrow[selection];
 	if (selection == 1) {
-		booksearch_page_flag = 1;
+		bookreserve_page_flag = 1;
 	}
 
 	selection = menuList(GenUIID(0), x + 3 * w, y - h, w, wlist, h, menuListUser, sizeof(menuListUser) / sizeof(menuListUser[0]));
@@ -152,8 +156,11 @@ void display()
 	if (initial_Reader_flag) {
 		initialReader();
 	}
-	if (booksearch_page_flag) {
-		booksearch_page();
+	if (bookreserve_page_flag) {
+		bookreserve_page();
+	}
+	if (bookedit_page_flag) {
+		bookedit_page();
 	}
 
 	//popupwindows

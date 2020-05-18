@@ -61,7 +61,7 @@
     <ClCompile Include="..\appcode\popupwindows.c">
       <Filter>appcode</Filter>
     </ClCompile>
-    <ClCompile Include="..\appcode\booksmanagement.c">
+    <ClCompile Include="..\appcode\bookmanagement.c">
       <Filter>appcode</Filter>
     </ClCompile>
   </ItemGroup>
@@ -117,7 +117,7 @@
     <ClInclude Include="..\appcode\popupwindows.h">
       <Filter>appcode</Filter>
     </ClInclude>
-    <ClInclude Include="..\appcode\booksmanagement.h">
+    <ClInclude Include="..\appcode\bookmanagement.h">
       <Filter>appcode</Filter>
     </ClInclude>
   </ItemGroup>

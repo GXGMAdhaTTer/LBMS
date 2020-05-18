@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\appcode\booksmanagement.c" />
+    <ClCompile Include="..\appcode\bookmanagement.c" />
     <ClCompile Include="..\appcode\demo.c" />
     <ClCompile Include="..\appcode\HSL2RGB.h" />
     <ClCompile Include="..\appcode\icons.c" />
@@ -29,7 +29,7 @@
     <ClCompile Include="..\simpleGUI\imgui.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\appcode\booksmanagement.h" />
+    <ClInclude Include="..\appcode\bookmanagement.h" />
     <ClInclude Include="..\appcode\demo.h" />
     <ClInclude Include="..\appcode\global.h" />
     <ClInclude Include="..\appcode\icons.h" />
