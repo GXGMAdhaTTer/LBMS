@@ -21,7 +21,7 @@ void Main()
 	registerKeyboardEvent(KeyboardEventProcess);
 	registerMouseEvent(MouseEventProcess);
 	registerCharEvent(CharEventProcess);
-	InitConsole(); 
+	//InitConsole(); 
 
 	//initiate pages
 	menu_flag = 1;
@@ -35,6 +35,7 @@ void Main()
 	accountsetting_page_flag = 0;
 	bookreserve_page_flag = 0;
 	bookedit_page_flag = 0;
+	reservation_page_flag = 0;
 }
 
 
@@ -50,7 +51,8 @@ void drawMenu()
 		"Search",
 		"Modify | Ctrl-T" };
 	static char* menuListBorrow[] = { "Borrow",
-		"Reserve  | Ctrl-M",
+		"Borrow  | Ctrl-B",
+		"Reservation",
 		"Return" };
 	static char* menuListUser[] = { "User",
 		"Login  | Ctrl-L",
@@ -90,6 +92,9 @@ void drawMenu()
 	if (selection > 0) selectedLabel = menuListBorrow[selection];
 	if (selection == 1) {
 		bookreserve_page_flag = 1;
+	}
+	if (selection == 2) {
+		reservation_page_flag = 1;
 	}
 
 	selection = menuList(GenUIID(0), x + 3 * w, y - h, w, wlist, h, menuListUser, sizeof(menuListUser) / sizeof(menuListUser[0]));
@@ -161,6 +166,9 @@ void display()
 	}
 	if (bookedit_page_flag) {
 		bookedit_page();
+	}
+	if (reservation_page_flag) {
+		reservation_page();
 	}
 
 	//popupwindows

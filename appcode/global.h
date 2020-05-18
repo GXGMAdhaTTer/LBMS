@@ -17,6 +17,7 @@ bool accountsetting_page_flag;
 bool bookreserve_page_flag;
 bool bookedit_page_flag;
 bool readerinformationwindow_page_flag;
+bool reservation_page_flag;
 
 
 bool charactor;

@@ -64,6 +64,9 @@
     <ClCompile Include="..\appcode\bookmanagement.c">
       <Filter>appcode</Filter>
     </ClCompile>
+    <ClCompile Include="..\appcode\reservationmanagement.c">
+      <Filter>appcode</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\libgraphics\exception.h">
@@ -118,6 +121,9 @@
       <Filter>appcode</Filter>
     </ClInclude>
     <ClInclude Include="..\appcode\bookmanagement.h">
+      <Filter>appcode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\appcode\reservationmanagement.h">
       <Filter>appcode</Filter>
     </ClInclude>
   </ItemGroup>

@@ -22,6 +22,7 @@
 #include "linkedlist.h"
 #include "imgui.h"
 #include "global.h"
+#include "reservationmanagement.h"
 void search_by();
 void order_filter();
 void DrawBooks(int x);

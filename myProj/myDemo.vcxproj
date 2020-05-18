@@ -19,6 +19,7 @@
     <ClCompile Include="..\appcode\linkedlist.c" />
     <ClCompile Include="..\appcode\loginpage.c" />
     <ClCompile Include="..\appcode\popupwindows.c" />
+    <ClCompile Include="..\appcode\reservationmanagement.c" />
     <ClCompile Include="..\appcode\statusbar.c" />
     <ClCompile Include="..\libgraphics\exceptio.c" />
     <ClCompile Include="..\libgraphics\genlib.c" />
@@ -37,6 +38,7 @@
     <ClInclude Include="..\appcode\linkedlist.h" />
     <ClInclude Include="..\appcode\loginpage.h" />
     <ClInclude Include="..\appcode\popupwindows.h" />
+    <ClInclude Include="..\appcode\reservationmanagement.h" />
     <ClInclude Include="..\appcode\statusbar.h" />
     <ClInclude Include="..\libgraphics\exception.h" />
     <ClInclude Include="..\libgraphics\extgraph.h" />
