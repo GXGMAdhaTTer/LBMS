@@ -29,4 +29,5 @@ void bookreserve_page();
 void showbookinformationwindow(int x);
 void bookedit_page();
 void editbookinformationwindow(int x);
+void addbookinformationwindow();
 #endif

@@ -21,7 +21,7 @@ void Main()
 	registerKeyboardEvent(KeyboardEventProcess);
 	registerMouseEvent(MouseEventProcess);
 	registerCharEvent(CharEventProcess);
-	//InitConsole(); 
+	InitConsole(); 
 
 	//initiate pages
 	menu_flag = 1;
