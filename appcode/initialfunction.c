@@ -31,7 +31,7 @@ void initialAdministrator() {
 	}
 
 	SetPenColor("Gray");
-	icon_Statistics(12.8, 6.8);
+	icon_Statistics(12.9, 6.8);
 	usePredefinedButtonColors(4);
 	SetPenSize(1);
 	if (button(GenUIID(0), 1.7+3*interval, 5.2, buttonWidth, buttonHeight, "Statistics")) {

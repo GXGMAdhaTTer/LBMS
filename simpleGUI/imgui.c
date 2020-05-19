@@ -693,15 +693,11 @@ int star_button(int id, double x, double y, double r)
 	gs_UIState.lastItem = id;
 
 	// draw the button
-	//drawBox(x + sinkx, y + sinky, w, h, gs_button_color.fillflag,
-	//	label, 'C', labelColor);
 	draw_Star(x+sinkx, y+sinky, r, gs_button_color.fillflag, labelColor);
 	if (gs_button_color.fillflag) {
-		//drawRectangle(x + sinkx, y + sinky, w, h, 0);
 		draw_Star(x + sinkx, y + sinky, r, 0, labelColor);
 	}
 
-	// ª≠º¸≈ÃÃ· æ, show a small ractangle frane
 	if (gs_UIState.kbdItem == id) {
 		mySetPenColor(labelColor);
 		
