@@ -64,7 +64,16 @@
     <ClCompile Include="..\appcode\bookmanagement.c">
       <Filter>appcode</Filter>
     </ClCompile>
-    <ClCompile Include="..\appcode\reservationmanagement.c">
+    <ClCompile Include="..\appcode\myreservation.c">
+      <Filter>appcode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\appcode\myborrow.c">
+      <Filter>appcode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\appcode\checkreservation.c">
+      <Filter>appcode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\appcode\readermanagement.c">
       <Filter>appcode</Filter>
     </ClCompile>
   </ItemGroup>
@@ -123,7 +132,16 @@
     <ClInclude Include="..\appcode\bookmanagement.h">
       <Filter>appcode</Filter>
     </ClInclude>
-    <ClInclude Include="..\appcode\reservationmanagement.h">
+    <ClInclude Include="..\appcode\myreservation.h">
+      <Filter>appcode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\appcode\myborrow.h">
+      <Filter>appcode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\appcode\checkreservation.h">
+      <Filter>appcode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\appcode\readermanagement.h">
       <Filter>appcode</Filter>
     </ClInclude>
   </ItemGroup>

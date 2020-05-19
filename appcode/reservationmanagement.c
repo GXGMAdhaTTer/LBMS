@@ -34,7 +34,7 @@ void reservation_page() {
 
 }
 
-void InitReservationList() {
+static void InitReservationList() {
 	ReservationT aptr;
 	int i;
 	for (i = 0; i < l; i++) {	
@@ -61,12 +61,20 @@ void DrawReservations(void* curreservation) {
 	
 	usePredefinedButtonColors(4);
 	if (button(GenUIID(aptr->id), aptr->cx+9.5, aptr->cy+0.05, 2, buttonHeight-0.1, "Cancel")) {
-		//DeleteNode(reservationlist,aptr,aptr->id ==)
+		DeleteNode(reservationlist, aptr, compare);
 	}
 	MovePen(ccx + 0.2, ccy);
 	SetPenColor("Light Gray");
 	DrawLine(11.6, 0);
 
+}
+
+void DrawButton(void* curreservation) {
+	ReservationT aptr = (ReservationT)curreservation;
+}
+
+bool compare(void* list, void* curreservation) {
+	return TRUE;
 }
 
 

@@ -28,3 +28,7 @@
 #include "initialfunction.h"
 #include "popupwindows.h"
 #include "bookmanagement.h"
+#include "myreservation.h"
+#include "myborrow.h"
+#include "checkreservation.h"
+#include "readermanagement.h"

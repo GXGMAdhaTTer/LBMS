@@ -36,24 +36,28 @@ void Main()
 	bookreserve_page_flag = 0;
 	bookedit_page_flag = 0;
 	reservation_page_flag = 0;
+	borrowing_page_flag = 0;
+	checkreservation_page_flag = 0;
+	readermanagement_page_flag = 0;
 }
 
 
 void drawMenu()
 {
 	usePredefinedMenuColors(4);
-	static char* menuListFile[] = { "File",
-		"Open  | Ctrl-O",
-		"New  | Ctrl-N",
-		"Quit   | Ctrl-E" };
+	static char* menuListFile[] = { "Manage",
+		"Check | Ctrl-C",
+		"Reader | Ctrl-R",
+		"Statistic",
+		"Quit | Ctrl-E" };
 	static char* menuListBooks[] = { "Books",
-		"Add",
-		"Search",
+		"Add | Ctrl-A",
+		"Search | Ctrl-F",
 		"Modify | Ctrl-T" };
 	static char* menuListBorrow[] = { "Borrow",
 		"Borrow  | Ctrl-B",
 		"Reservation",
-		"Return" };
+		"Renew" };
 	static char* menuListUser[] = { "User",
 		"Login  | Ctrl-L",
 		"Register",
@@ -76,11 +80,21 @@ void drawMenu()
 
 	selection = menuList(GenUIID(0), x, y - h, w, wlist, h, menuListFile, sizeof(menuListFile) / sizeof(menuListFile[0]));
 	if (selection > 0) selectedLabel = menuListFile[selection];
-	if (selection == 3)
+	if (selection == 1) {
+		checkreservation_page_flag = 1;
+	}
+	if (selection == 2) {
+		readermanagement_page_flag = 1;
+	}
+	if (selection == 4)
 		exit(-1);
 
 	selection = menuList(GenUIID(0), x + w, y - h, w, wlist, h, menuListBooks, sizeof(menuListBooks) / sizeof(menuListBooks[0]));
 	if (selection > 0) selectedLabel = menuListBooks[selection];
+	if (selection == 1) {
+		bookedit_page_flag = 1;
+		
+	}
 	if (selection == 2) {
 		bookedit_page_flag = 1;
 	}
@@ -95,6 +109,9 @@ void drawMenu()
 	}
 	if (selection == 2) {
 		reservation_page_flag = 1;
+	}
+	if (selection == 3) {
+		borrowing_page_flag = 1;
 	}
 
 	selection = menuList(GenUIID(0), x + 3 * w, y - h, w, wlist, h, menuListUser, sizeof(menuListUser) / sizeof(menuListUser[0]));
@@ -170,6 +187,15 @@ void display()
 	if (reservation_page_flag) {
 		reservation_page();
 	}
+	if (checkreservation_page_flag) {
+		checkreservation_page();
+	}
+	if (borrowing_page_flag) {
+		myborrow_page();
+	}
+	if (readermanagement_page_flag) {
+		readermanagement_page();
+	}
 
 	//popupwindows
 	if (signup_page_flag) {
@@ -184,6 +210,7 @@ void display()
 	if (about_page_flag) {
 		aboutwindow();
 	}
+	
 }
 void MouseEventProcess(int x, int y, int button, int event)
 {

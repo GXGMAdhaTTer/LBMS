@@ -67,10 +67,10 @@ void bookreserve_page() {
 	}
 
 	//Search By
-	search_by();
+	searchbooks_by();
 
 	//filters
-	order_filter();
+	booksorder_filter();
 
 	//sheet
 	SetPenColor("Light Gray");
@@ -106,7 +106,7 @@ void bookreserve_page() {
 
 }
 
-void search_by() {
+void searchbooks_by() {
 	//state_isbn
 	if (state_isbn.state)setButtonColors("Gray", "Red", "Dark Gray", "Yellow", 1);
 	else if (!state_isbn.state)usePredefinedButtonColors(4);
@@ -139,7 +139,7 @@ void search_by() {
 		state_keyword.state = !state_keyword.state;
 	}
 }
-void order_filter() {
+void booksorder_filter() {
 	if (state_filter_isbn.state)setButtonColors("Light Gray", "Black", "Gray", "Black", 1);
 	else if (!state_filter_isbn.state)setButtonColors("White", "Black", "Light Gray", "Black", 1);
 	if (button(GenUIID(0), 2, 8, buttonWidth + 0.5, buttonHeight, state_filter_isbn.state ? "ISBN  v" : "ISBN")) {
@@ -314,10 +314,10 @@ void bookedit_page() {
 	}
 
 	//Search By
-	search_by();
+	searchbooks_by();
 
 	//filters
-	order_filter();
+	booksorder_filter();
 
 	//sheet
 	SetPenColor("Light Gray");

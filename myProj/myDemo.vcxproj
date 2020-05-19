@@ -12,14 +12,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\appcode\bookmanagement.c" />
+    <ClCompile Include="..\appcode\checkreservation.c" />
     <ClCompile Include="..\appcode\demo.c" />
     <ClCompile Include="..\appcode\HSL2RGB.h" />
     <ClCompile Include="..\appcode\icons.c" />
     <ClCompile Include="..\appcode\initialfunction.c" />
     <ClCompile Include="..\appcode\linkedlist.c" />
     <ClCompile Include="..\appcode\loginpage.c" />
+    <ClCompile Include="..\appcode\myborrow.c" />
+    <ClCompile Include="..\appcode\myreservation.c" />
     <ClCompile Include="..\appcode\popupwindows.c" />
-    <ClCompile Include="..\appcode\reservationmanagement.c" />
+    <ClCompile Include="..\appcode\readermanagement.c" />
     <ClCompile Include="..\appcode\statusbar.c" />
     <ClCompile Include="..\libgraphics\exceptio.c" />
     <ClCompile Include="..\libgraphics\genlib.c" />
@@ -31,14 +34,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\appcode\bookmanagement.h" />
+    <ClInclude Include="..\appcode\checkreservation.h" />
     <ClInclude Include="..\appcode\demo.h" />
     <ClInclude Include="..\appcode\global.h" />
     <ClInclude Include="..\appcode\icons.h" />
     <ClInclude Include="..\appcode\initialfunction.h" />
     <ClInclude Include="..\appcode\linkedlist.h" />
     <ClInclude Include="..\appcode\loginpage.h" />
+    <ClInclude Include="..\appcode\myreservation.h" />
+    <ClInclude Include="..\appcode\myborrow.h" />
     <ClInclude Include="..\appcode\popupwindows.h" />
-    <ClInclude Include="..\appcode\reservationmanagement.h" />
+    <ClInclude Include="..\appcode\readermanagement.h" />
     <ClInclude Include="..\appcode\statusbar.h" />
     <ClInclude Include="..\libgraphics\exception.h" />
     <ClInclude Include="..\libgraphics\extgraph.h" />

@@ -23,6 +23,8 @@
 #include "imgui.h"
 #include "global.h"
 void InitReservationList();
+bool compare(void* list, void* curreservation);
 void reservation_page();
 void DrawReservations(void* curreservation);
+
 #endif
