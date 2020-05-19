@@ -15,6 +15,8 @@ void initialAdministrator() {
 	usePredefinedButtonColors(4);
 	SetPenSize(1);
 	if (button(GenUIID(0), 1.7+interval, 5.2, buttonWidth, buttonHeight, "Check Requests")) {
+		checkreservation_page_flag = 1;
+		initial_Administrator_flag = 0;
 		select_status = "";
 	}
 
@@ -23,6 +25,8 @@ void initialAdministrator() {
 	usePredefinedButtonColors(4);
 	SetPenSize(1);
 	if (button(GenUIID(0), 1.7+2*interval, 5.2, buttonWidth, buttonHeight, "Readers")) {
+		readermanagement_page_flag = 1;
+		initial_Administrator_flag = 0;
 		select_status = "";
 	}
 
@@ -51,6 +55,8 @@ void initialReader() {
 	usePredefinedButtonColors(4);
 	SetPenSize(1);
 	if (button(GenUIID(0), 1.7 + interval, 5.2, buttonWidth, buttonHeight, "Reservation")) {
+		reservation_page_flag = 1;
+		initial_Reader_flag = 0;
 		select_status = "";
 	}
 
@@ -58,7 +64,9 @@ void initialReader() {
 	icon_Return(9.5, 6.8);
 	usePredefinedButtonColors(4);
 	SetPenSize(1);
-	if (button(GenUIID(0), 1.7 + 2 * interval, 5.2, buttonWidth, buttonHeight, "Return")) {
+	if (button(GenUIID(0), 1.7 + 2 * interval, 5.2, buttonWidth, buttonHeight, "Renew")) {
+		borrowing_page_flag = 1;
+		initial_Reader_flag = 0;
 		select_status = "";
 	}
 
