@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClCompile Include="..\appcode\bookmanagement.c" />
     <ClCompile Include="..\appcode\checkreservation.c" />
+    <ClCompile Include="..\appcode\cover.c" />
     <ClCompile Include="..\appcode\demo.c" />
     <ClCompile Include="..\appcode\HSL2RGB.h" />
     <ClCompile Include="..\appcode\icons.c" />
@@ -23,6 +24,7 @@
     <ClCompile Include="..\appcode\myreservation.c" />
     <ClCompile Include="..\appcode\popupwindows.c" />
     <ClCompile Include="..\appcode\readermanagement.c" />
+    <ClCompile Include="..\appcode\statistic.c" />
     <ClCompile Include="..\appcode\statusbar.c" />
     <ClCompile Include="..\libgraphics\exceptio.c" />
     <ClCompile Include="..\libgraphics\genlib.c" />
@@ -35,6 +37,7 @@
   <ItemGroup>
     <ClInclude Include="..\appcode\bookmanagement.h" />
     <ClInclude Include="..\appcode\checkreservation.h" />
+    <ClInclude Include="..\appcode\cover.h" />
     <ClInclude Include="..\appcode\demo.h" />
     <ClInclude Include="..\appcode\global.h" />
     <ClInclude Include="..\appcode\icons.h" />
@@ -45,6 +48,7 @@
     <ClInclude Include="..\appcode\myborrow.h" />
     <ClInclude Include="..\appcode\popupwindows.h" />
     <ClInclude Include="..\appcode\readermanagement.h" />
+    <ClInclude Include="..\appcode\statistic.h" />
     <ClInclude Include="..\appcode\statusbar.h" />
     <ClInclude Include="..\libgraphics\exception.h" />
     <ClInclude Include="..\libgraphics\extgraph.h" />

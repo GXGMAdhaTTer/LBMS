@@ -32,3 +32,5 @@
 #include "myborrow.h"
 #include "checkreservation.h"
 #include "readermanagement.h"
+#include "statistic.h"
+#include "cover.h"

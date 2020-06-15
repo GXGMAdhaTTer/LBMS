@@ -39,6 +39,7 @@ void Main()
 	borrowing_page_flag = 0;
 	checkreservation_page_flag = 0;
 	readermanagement_page_flag = 0;
+	statistic_page_flag = 0;
 }
 
 
@@ -85,6 +86,9 @@ void drawMenu()
 	}
 	if (selection == 2) {
 		readermanagement_page_flag = 1;
+	}
+	if (selection == 3) {
+		statistic_page_flag = 1;
 	}
 	if (selection == 4)
 		exit(-1);
@@ -195,6 +199,9 @@ void display()
 	}
 	if (readermanagement_page_flag) {
 		readermanagement_page();
+	}
+	if (statistic_page_flag) {
+		statistic_page();
 	}
 
 	//popupwindows

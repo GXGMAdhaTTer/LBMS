@@ -21,6 +21,8 @@ bool reservation_page_flag;
 bool checkreservation_page_flag;
 bool borrowing_page_flag;
 bool readermanagement_page_flag;
+bool cover_page_flag;
+bool statistic_page_flag;
 
 
 bool charactor;

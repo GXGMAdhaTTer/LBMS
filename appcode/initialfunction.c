@@ -35,6 +35,8 @@ void initialAdministrator() {
 	usePredefinedButtonColors(4);
 	SetPenSize(1);
 	if (button(GenUIID(0), 1.7+3*interval, 5.2, buttonWidth, buttonHeight, "Statistics")) {
+		initial_Administrator_flag = 0;
+		statistic_page_flag = 1;
 		select_status = "";
 	}
 }

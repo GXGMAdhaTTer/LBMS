@@ -41,7 +41,7 @@
 
 #define KMOD_SHIFT 0x01
 #define KMOD_CTRL  0x02
-#define PI 3.14159265
+#define PI 3.1415926535
 
 /* Êó±êºÍ¿Õ¼ä×´Ì¬ */
 typedef struct {
@@ -259,7 +259,7 @@ int button(int id, double x, double y, double w, double h, char *label)
 {
 	char * frameColor = gs_button_color.frame;
 	char * labelColor = gs_button_color.label;
-	double movement = 0.2*h;
+	double movement = 0.1*h;
 	double shrink = 0.15*h;
 	double sinkx = 0, sinky = 0;
 	//int isHotItem = 0;

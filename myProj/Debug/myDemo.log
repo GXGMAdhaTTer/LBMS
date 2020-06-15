@@ -1,3 +1,15 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(467,5): warning MSB8028: 中间目录(Debug\)包含从另一个项目(Demo.vcxproj)共享的文件。   这会导致错误的清除和重新生成行为。
-  initialfunction.c
+  imgui.c
+C:\Users\xiaoguogao\source\repos\GXGProj\simpleGUI\imgui.c(130,12): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\GXGProj\simpleGUI\imgui.c(131,12): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\GXGProj\simpleGUI\imgui.c(132,15): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\GXGProj\simpleGUI\imgui.c(133,15): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\GXGProj\simpleGUI\imgui.c(139,12): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\GXGProj\simpleGUI\imgui.c(140,12): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\GXGProj\simpleGUI\imgui.c(141,15): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\GXGProj\simpleGUI\imgui.c(142,15): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\GXGProj\simpleGUI\imgui.c(148,12): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\GXGProj\simpleGUI\imgui.c(149,12): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\GXGProj\simpleGUI\imgui.c(150,15): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\GXGProj\simpleGUI\imgui.c(151,15): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   myDemo.vcxproj -> C:\Users\xiaoguogao\source\repos\GXGProj\myProj\Debug\myDemo.exe

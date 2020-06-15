@@ -76,6 +76,12 @@
     <ClCompile Include="..\appcode\readermanagement.c">
       <Filter>appcode</Filter>
     </ClCompile>
+    <ClCompile Include="..\appcode\cover.c">
+      <Filter>appcode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\appcode\statistic.c">
+      <Filter>appcode</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\libgraphics\exception.h">
@@ -142,6 +148,12 @@
       <Filter>appcode</Filter>
     </ClInclude>
     <ClInclude Include="..\appcode\readermanagement.h">
+      <Filter>appcode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\appcode\cover.h">
+      <Filter>appcode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\appcode\statistic.h">
       <Filter>appcode</Filter>
     </ClInclude>
   </ItemGroup>
