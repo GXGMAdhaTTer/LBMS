@@ -6,9 +6,16 @@ static double buttonHeight = 0.5;
 static double interval = 3.4;
 
 bool menu_flag;
+bool login_status;//登录状态
+
+//控制每个页面是否显示
 bool login_page_flag;
 bool guide_page_flag;
 bool about_page_flag;
+bool sorry_page_flag;
+bool sorry_page_flag_reader;
+bool sorry_page_flag_administrator;
+
 bool password_page_flag;
 bool initial_Administrator_flag;
 bool initial_Reader_flag;
@@ -25,7 +32,7 @@ bool cover_page_flag;
 bool statistic_page_flag;
 
 
-bool charactor;
+bool charactor;//判断是什么身份,1是读者，0是管理者
 
 string select_status;
 

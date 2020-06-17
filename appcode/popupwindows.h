@@ -27,5 +27,8 @@ void signupwindow();
 void accountsettingwindow();
 void guidewindow();
 void aboutwindow();
+void sorrywindow();
+void sorrywindow_administrator();
+void sorrywindow_reader();
 
 #endif

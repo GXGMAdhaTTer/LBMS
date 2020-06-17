@@ -1,4 +1,6 @@
 #include "bookmanagement.h"
+
+//myBook info struct
 struct myBook {
 	double cx, cy;
 	string ISBNcode;
@@ -18,9 +20,19 @@ double stateinterval = 1.2;
 bool showbook_flag = 0;
 bool isaddbookinformationshow = 0;
 int k = 10;//k<=12
+
 //state struct
 int pagemax;
-bool modifyStatus = FALSE;
+
+//modify status
+bool ismodified_Publicationdate = FALSE;
+bool ismodified_ISBN = FALSE;
+bool ismodified_Title = FALSE;
+bool ismodified_Author = FALSE;
+bool ismodified_Press = FALSE;
+bool ismodified_Class = FALSE;
+bool ismodified_Keywords = FALSE;
+
 int flappage = 0;
 
 struct statebutton {
@@ -71,7 +83,7 @@ void bookreserve_page() {
 
 	//filters
 	booksorder_filter();
-
+	
 	//sheet
 	SetPenColor("Light Gray");
 	drawRectangle(2, 2, 12, 7, 0);
@@ -397,37 +409,57 @@ void editbookinformationwindow(int x) {
 				break;
 			}
 
-			////edit infomaiton
+			//edit mystr 注意这里修改的是整形值和字符数组，其他的只要使用字符数组即可。
+			static char mystr_Publicationdate[5];
+			static char mystr_ISBN[15];
+			static char mystr_Title[20];
+			static char mystr_Author[10];
+			static char mystr_Press[10];
+			static char mystr_Class[10];
+			static char mystr_Keywords[30];
 
-			//edit publicationdate 注意这里修改的是整形值和字符数组，其他的只要使用字符数组即可。
-			static char mystr[5];
-			if (modifyStatus == FALSE)
-				_itoa(GXGBook[n].Publicationdate, mystr, 10);
+			//initial modify status
+			if (ismodified_Publicationdate == FALSE)
+				_itoa(GXGBook[n].Publicationdate, mystr_Publicationdate, 10);
+			if (ismodified_ISBN == FALSE)
+				strcpy(mystr_ISBN, GXGBook[n].ISBNcode);
+			if (ismodified_Title == FALSE)
+				strcpy(mystr_Title, GXGBook[n].Title);
+			if (ismodified_Author == FALSE)
+				strcpy(mystr_Author, GXGBook[n].Author);
+			if (ismodified_Press == FALSE)
+				strcpy(mystr_Press, GXGBook[n].Press);
+			if (ismodified_Class == FALSE)
+				strcpy(mystr_Class, GXGBook[n].Class);
+			if (ismodified_Keywords == FALSE)
+				strcpy(mystr_Keywords, GXGBook[n].Keywords);
 
-			if (textbox(GenUIID(0), infox + 2.5, infoy - infointerval * 4, infowid * 2, 0.5, mystr, sizeof(mystr))) {
-				modifyStatus = TRUE;
-				GXGBook[n].Publicationdate = atoi(mystr);
+
+			//show textboxs
+			if (textbox(GenUIID(0), infox + 2.5, infoy - infointerval * 4, infowid * 2, 0.5, mystr_Publicationdate, sizeof(mystr_Publicationdate))) {
+				ismodified_Publicationdate = TRUE;
 			}
 
-
-			if (textbox(GenUIID(0), infox + 2.5, infoy, infowid * 2, 0.5, GXGBook[n].ISBNcode, sizeof(GXGBook[n].ISBNcode))) {
-
+			if (textbox(GenUIID(0), infox + 2.5, infoy, infowid * 2, 0.5, mystr_ISBN, sizeof(mystr_ISBN))) {
+				ismodified_ISBN = TRUE;
 			}
-			if (textbox(GenUIID(0), infox + 2.5, infoy - infointerval * 1, infowid * 2, 0.5, GXGBook[n].Title, sizeof(GXGBook[n].Title))) {
 
+			if (textbox(GenUIID(0), infox + 2.5, infoy - infointerval * 1, infowid * 2, 0.5, mystr_Title, sizeof(mystr_Title))) {
+				ismodified_Title = TRUE;
 			}
-			if (textbox(GenUIID(0), infox + 2.5, infoy - infointerval * 2, infowid * 2, 0.5, GXGBook[n].Author, sizeof(GXGBook[n].Author))) {
+			if (textbox(GenUIID(0), infox + 2.5, infoy - infointerval * 2, infowid * 2, 0.5, mystr_Author, sizeof(mystr_Author))) {
+				ismodified_Author = TRUE;
+			}
+			if (textbox(GenUIID(0), infox + 2.5, infoy - infointerval * 3, infowid * 2, 0.5, mystr_Press, sizeof(mystr_Press))) {
+				ismodified_Press = TRUE;
+			}
+			if (textbox(GenUIID(0), infox + 2.5, infoy - infointerval * 5, infowid * 2, 0.5, mystr_Class, sizeof(mystr_Class))) {
+				ismodified_Class = TRUE;
+			}
+			if (textbox(GenUIID(0), infox + 2.5, infoy - infointerval * 6, infowid * 2, 0.5, mystr_Keywords, sizeof(mystr_Keywords))) {
+				ismodified_Keywords = TRUE;
+			}
 
-			}
-			if (textbox(GenUIID(0), infox + 2.5, infoy - infointerval * 3, infowid * 2, 0.5, GXGBook[n].Press, sizeof(GXGBook[n].Press))) {
-
-			}
-			if (textbox(GenUIID(0), infox + 2.5, infoy - infointerval * 5, infowid * 2, 0.5, GXGBook[n].Class, sizeof(GXGBook[n].Class))) {
-
-			}
-			if (textbox(GenUIID(0), infox + 2.5, infoy - infointerval * 6, infowid * 2, 0.5, GXGBook[n].Keywords, sizeof(GXGBook[n].Keywords))) {
-
-			}
 			drawMidLabel(infox + 2.5, infoy - infointerval * 7, infowid * 2, 0.5, Statestring, 'L', "Black");
 
 			usePredefinedButtonColors(4);

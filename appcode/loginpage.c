@@ -38,6 +38,7 @@ void password_page() {
 	}
 
 	if (button(GenUIID(0), 5.6, 4.8, buttonWidth, buttonHeight, "Sign In")) {
+		login_status = 1;
 		select_status = "";
 		password_page_flag = 0;
 		if (charactor)
@@ -50,7 +51,5 @@ void password_page() {
 		select_status = "";
 		signup_page_flag = 1;
 	}
-
-	
 
 }

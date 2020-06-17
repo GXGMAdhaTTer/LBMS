@@ -9,7 +9,7 @@ struct Request {
 	string Expirydate;
 }myrequest[5];
 
-static int s = 3;
+static int s = 4;
 
 static void initRequest(int x) {
 	for (int i = 0; i < x; i++) {
@@ -40,8 +40,15 @@ void DrawRequest(int x) {
 }
 
 void DeleteReq(struct Request* a, int M, int* n) {
-	for (int i = M; i < *n; i++) {
-		a[i - 1] = a[i];
+	if (M == 0) {
+		for (int i = 1; i < *n; i++) {
+			a[i - 1] = a[i];
+		}
+	}
+	if (M > 0) {
+		for (int i = M; i < *n; i++) {
+			a[i - 1] = a[i];
+		}
 	}
 	*n = *n - 1;
 }
@@ -63,5 +70,6 @@ void checkreservation_page() {
 	//sheethead
 	drawMidLabel(2, 9, 3, 0.5, "ISBN", 'M', "Black");
 	drawMidLabel(5, 9, 3, 0.5, "Title", 'M', "Black");
-	drawMidLabel(8, 9, 3, 0.5, "Expiry Date", 'M', "Black");
+	drawMidLabel(7.5, 9, 3, 0.5, "hirer", 'M', "Black");
+	drawMidLabel(9.5, 9, 3, 0.5, "Expiry Date", 'M', "Black");
 }

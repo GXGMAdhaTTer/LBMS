@@ -8,6 +8,7 @@ void display(void);
 void KeyboardEventProcess(int key, int event);
 void MouseEventProcess(int x, int y, int button, int event);
 void CharEventProcess(char ch);
+void ReturnPages();
 
 void Main()
 {
@@ -77,18 +78,51 @@ void drawMenu()
 	double w = 1;
 	double wlist = 2;
 	double xindent = winheight / 20;
-	int    selection;
+	int selection;
 
 	selection = menuList(GenUIID(0), x, y - h, w, wlist, h, menuListFile, sizeof(menuListFile) / sizeof(menuListFile[0]));
 	if (selection > 0) selectedLabel = menuListFile[selection];
 	if (selection == 1) {
-		checkreservation_page_flag = 1;
+		if (login_status) {
+			if (charactor) {
+				sorry_page_flag_administrator = 1;
+			}
+			if (!charactor) {
+				initial_Administrator_flag = 0;
+				checkreservation_page_flag = 1;
+			}
+		}
+		if(!login_status) {
+			sorry_page_flag = 1;
+		}
 	}
 	if (selection == 2) {
-		readermanagement_page_flag = 1;
+		if (login_status) {
+			if (charactor) {
+				sorry_page_flag_administrator = 1;
+			}
+			if (!charactor) {
+				initial_Administrator_flag = 0;
+				readermanagement_page_flag = 1;
+			}
+		}
+		if (!login_status) {
+			sorry_page_flag = 1;
+		}
 	}
 	if (selection == 3) {
-		statistic_page_flag = 1;
+		if (login_status) {
+			if (charactor) {
+				sorry_page_flag_administrator = 1;
+			}
+			if (!charactor) {
+				initial_Administrator_flag = 0;
+				statistic_page_flag = 1;
+			}
+		}
+		if (!login_status) {
+			sorry_page_flag = 1;
+		}
 	}
 	if (selection == 4)
 		exit(-1);
@@ -96,26 +130,92 @@ void drawMenu()
 	selection = menuList(GenUIID(0), x + w, y - h, w, wlist, h, menuListBooks, sizeof(menuListBooks) / sizeof(menuListBooks[0]));
 	if (selection > 0) selectedLabel = menuListBooks[selection];
 	if (selection == 1) {
-		bookedit_page_flag = 1;
-		
+		if (login_status) {
+			if (charactor) {
+				sorry_page_flag_administrator = 1;
+			}
+			if (!charactor) {
+				initial_Administrator_flag = 1;
+				bookedit_page_flag = 1;
+				addbookinformationwindow();
+			}
+		}
+		if (!login_status) {
+			sorry_page_flag = 1;
+		}
 	}
 	if (selection == 2) {
-		bookedit_page_flag = 1;
+		if (login_status) {
+			if (charactor) {
+				sorry_page_flag_administrator = 1;
+			}
+			if (!charactor) {
+				initial_Administrator_flag = 0;
+				bookedit_page_flag = 1;
+			}
+		}
+		if (!login_status) {
+			sorry_page_flag = 1;
+		}
 	}
 	if (selection == 3) {
-		bookedit_page_flag = 1;
+		if (login_status) {
+			if (charactor) {
+				sorry_page_flag_administrator = 1;
+			}
+			if (!charactor) {
+				initial_Administrator_flag = 0;
+				bookedit_page_flag = 1;
+			}
+		}
+		if (!login_status) {
+			sorry_page_flag = 1;
+		}
 	}
 
 	selection = menuList(GenUIID(0), x + 2 * w, y - h, w, wlist, h, menuListBorrow, sizeof(menuListBorrow) / sizeof(menuListBorrow[0]));
 	if (selection > 0) selectedLabel = menuListBorrow[selection];
 	if (selection == 1) {
-		bookreserve_page_flag = 1;
+		if (login_status) {
+			if (charactor) {
+				initial_Reader_flag = 0;
+				bookreserve_page_flag = 1;
+			}
+			if (!charactor) {
+				sorry_page_flag_reader = 1;
+			}
+		}
+		if (!login_status) {
+			sorry_page_flag = 1;
+		}
 	}
 	if (selection == 2) {
-		reservation_page_flag = 1;
+		if (login_status) {
+			if (charactor) {
+				initial_Reader_flag = 0;
+				reservation_page_flag = 1;
+			}
+			if (!charactor) {
+				sorry_page_flag_reader = 1;
+			}
+		}
+		if (!login_status) {
+			sorry_page_flag = 1;
+		}
 	}
 	if (selection == 3) {
-		borrowing_page_flag = 1;
+		if (login_status) {
+			if (charactor) {
+				initial_Reader_flag = 0;
+				borrowing_page_flag = 1;
+			}
+			if (!charactor) {
+				sorry_page_flag_reader = 1;
+			}
+		}
+		if (!login_status) {
+			sorry_page_flag = 1;
+		}
 	}
 
 	selection = menuList(GenUIID(0), x + 3 * w, y - h, w, wlist, h, menuListUser, sizeof(menuListUser) / sizeof(menuListUser[0]));
@@ -127,6 +227,7 @@ void drawMenu()
 		signup_page_flag = 0;
 		initial_Administrator_flag = 0;
 		initial_Reader_flag = 0;
+		login_status = 0;
 	}
 	if (selection == 2) {
 		signup_page_flag = 1;
@@ -136,6 +237,7 @@ void drawMenu()
 		guide_page_flag = 0;
 		about_page_flag = 0;
 		signup_page_flag = 0;
+		login_status = 0;
 	}
 
 	selection = menuList(GenUIID(0), x + 4 * w, y - h, w, wlist, h, menuListHelp, sizeof(menuListHelp) / sizeof(menuListHelp[0]));
@@ -167,9 +269,6 @@ void display()
 	DisplayClear();
 
 	//normalwindows
-	if (menu_flag) {
-		drawMenu();
-	}
 	if (login_page_flag) {
 		login_page();
 	}
@@ -211,11 +310,26 @@ void display()
 	if (accountsetting_page_flag) {
 		accountsettingwindow();
 	}
+
+	if (sorry_page_flag) {
+		sorrywindow();
+	}
+	if (sorry_page_flag_administrator) {
+		sorrywindow_administrator();
+	}
+	if (sorry_page_flag_reader) {
+		sorrywindow_reader();
+	}
 	if (guide_page_flag) {
 		guidewindow();
 	}
 	if (about_page_flag) {
 		aboutwindow();
+	}
+	
+	//show menu
+	if (menu_flag) {
+		drawMenu();
 	}
 	
 }
@@ -237,6 +351,31 @@ void KeyboardEventProcess(int key, int event)
 void CharEventProcess(char ch) {
 	uiGetChar(ch);
 	display();
+}
+
+void ReturnPages() {
+	login_status = 0;
+	login_page_flag = 0;
+	guide_page_flag = 0;
+	about_page_flag;
+	sorry_page_flag = 0;
+	sorry_page_flag_reader = 0;
+	sorry_page_flag_administrator = 0;
+	password_page_flag = 0;
+	initial_Administrator_flag = 0;
+	initial_Reader_flag = 0;
+	signup_page_flag = 0;
+	accountsetting_page_flag = 0;
+	bookreserve_page_flag = 0;
+	bookedit_page_flag = 0;
+	readerinformationwindow_page_flag = 0;
+	reservation_page_flag = 0;
+	checkreservation_page_flag = 0;
+	borrowing_page_flag = 0;
+	readermanagement_page_flag = 0;
+	cover_page_flag = 0;
+	statistic_page_flag = 0;
+
 }
 
 
