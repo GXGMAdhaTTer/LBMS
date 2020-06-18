@@ -9,6 +9,7 @@ bool menu_flag;
 bool login_status;//登录状态
 
 //控制每个页面是否显示
+bool cover_flag;
 bool login_page_flag;
 bool guide_page_flag;
 bool about_page_flag;

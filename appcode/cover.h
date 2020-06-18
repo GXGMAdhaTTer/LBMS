@@ -24,6 +24,5 @@
 #include "global.h"
 
 void cover_page();
-void drawlogo(double cx, double cy);
 
 #endif

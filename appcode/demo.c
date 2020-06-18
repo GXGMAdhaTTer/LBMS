@@ -24,6 +24,7 @@ void Main()
 	registerKeyboardEvent(KeyboardEventProcess);
 	registerMouseEvent(MouseEventProcess);
 	registerCharEvent(CharEventProcess);
+
 	//InitConsole(); 
 
 	//initiate pages
@@ -281,6 +282,12 @@ void display()
 {
 	DisplayClear();
 
+	//cover
+	//cover_flag = 1;
+	if (cover_flag) {
+		cover_page();
+	}
+
 	//normalwindows
 	if (login_page_flag) {
 		login_page();
@@ -403,6 +410,3 @@ void ReturnReader() {
 	charactor = 1;
 	initial_Reader_flag = 1;
 }
-
-
-
