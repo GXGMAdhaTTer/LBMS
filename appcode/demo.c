@@ -9,6 +9,8 @@ void KeyboardEventProcess(int key, int event);
 void MouseEventProcess(int x, int y, int button, int event);
 void CharEventProcess(char ch);
 void ReturnPages();
+void ReturnAdministrator();
+void ReturnReader();
 
 void Main()
 {
@@ -233,11 +235,7 @@ void drawMenu()
 		signup_page_flag = 1;
 	}
 	if (selection == 3) {
-		login_page_flag = 0;
-		guide_page_flag = 0;
-		about_page_flag = 0;
-		signup_page_flag = 0;
-		login_status = 0;
+		ReturnPages();
 	}
 
 	selection = menuList(GenUIID(0), x + 4 * w, y - h, w, wlist, h, menuListHelp, sizeof(menuListHelp) / sizeof(menuListHelp[0]));
@@ -357,7 +355,7 @@ void ReturnPages() {
 	login_status = 0;
 	login_page_flag = 0;
 	guide_page_flag = 0;
-	about_page_flag;
+	about_page_flag = 0;
 	sorry_page_flag = 0;
 	sorry_page_flag_reader = 0;
 	sorry_page_flag_administrator = 0;
@@ -375,7 +373,20 @@ void ReturnPages() {
 	readermanagement_page_flag = 0;
 	cover_page_flag = 0;
 	statistic_page_flag = 0;
+}
 
+void ReturnAdministrator() {
+	ReturnPages();
+	login_status = 1;
+	charactor = 0;
+	initial_Administrator_flag = 1;
+}
+
+void ReturnReader() {
+	ReturnPages();
+	login_status = 1;
+	charactor = 1;
+	initial_Reader_flag = 1;
 }
 
 
