@@ -39,7 +39,7 @@ string select_status;
 static char Administrator_AccountName[10] = "";
 static char Administrator_Password[10] = "";
 
-static char Reader_ID[10] = "";
+static char Reader_ID[11] = "";
 static char Reader_Password[10] = "";
 static char Reader_Name[10] = "";
 static char Reader_Gender[10] = "";

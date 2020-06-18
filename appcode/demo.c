@@ -260,6 +260,21 @@ void drawMenu()
 	drawLabel(winwidth/2-1.5,winheight-0.2, "Library management system");
 	drawLabel(0.3, 0.1, select_status);
 	SetPenColor("Light Gray");
+
+	if (login_status) {//返回主页和登出
+		usePredefinedButtonColors(4);
+		if (button(GenUIID(0), 13, 11.45, 1, 0.4, "Back")) {
+			if (charactor) {
+				ReturnReader();
+			}
+			else if (!charactor) {
+				ReturnAdministrator();
+			}
+		}
+		if (button(GenUIID(0), 14.5, 11.45, 1, 0.4, "Logout")) {
+			ReturnPages();
+		}
+	}
 }
 
 void display()
