@@ -1,0 +1,8 @@
+#1.  在搜索界面用小于2个字符搜索keyword或者author可能卡死
+	反馈：libgraphic老汉字bug，在匹配汉字的时候会出问题，建议使用全英文数据库
+#2.  界面闪烁太瞎眼
+	反馈：libgraphic老bug，刷新太频繁，建议用win api重写graphic
+#3.  无法输入中文
+	反馈：libgraphic老bug......
+
+结论：libgraphic老bug。

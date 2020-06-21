@@ -23,10 +23,10 @@
 #include "imgui.h"
 #include "global.h"
 
-void statistic_page();
-void initClassDate();
+void statistic_page(DB_Book* library);
+void initClassDate(DB_Book* library);
 void drawDateLine(int n, int t);
-void drawHistogram(int dtype);
+void drawHistogram(int dtype, DB_Book* library);
 void drawPiechart(double cx, double cy, int nummale, int numfemale);
 void showPopular(char* popularformen, char* popularforwomen);
 #endif

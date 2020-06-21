@@ -8,11 +8,17 @@
     <Filter Include="libgraphics">
       <UniqueIdentifier>{8ac9139e-f1dd-49f4-a9cd-d352bb894e0a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="appcode">
+      <UniqueIdentifier>{fc2c97d9-ee97-4602-baf2-d97e0c123b40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SimpleData_Library">
+      <UniqueIdentifier>{c1aea830-233b-4bed-a758-de07503d7295}</UniqueIdentifier>
+    </Filter>
     <Filter Include="simpleGUI">
       <UniqueIdentifier>{a3c51ff2-ad62-4656-8391-e5a54542c0d1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="appcode">
-      <UniqueIdentifier>{fc2c97d9-ee97-4602-baf2-d97e0c123b40}</UniqueIdentifier>
+    <Filter Include="SimpleData_Library\MD5">
+      <UniqueIdentifier>{ced31f54-f144-4e73-a493-1e9873e2c7a3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -81,6 +87,30 @@
     </ClCompile>
     <ClCompile Include="..\appcode\statistic.c">
       <Filter>appcode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SimpleData_Library\DBGeneral.c">
+      <Filter>SimpleData_Library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SimpleData_Library\DBSearch.c">
+      <Filter>SimpleData_Library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SimpleData_Library\DBStruct.c">
+      <Filter>SimpleData_Library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SimpleData_Library\DBAdmin.c">
+      <Filter>SimpleData_Library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SimpleData_Library\DBCsv.c">
+      <Filter>SimpleData_Library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SimpleData_Library\MD5\MD5.c">
+      <Filter>SimpleData_Library\MD5</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SimpleData_Library\DBSecurity.c">
+      <Filter>SimpleData_Library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SimpleData_Library\DBUAdmin.c">
+      <Filter>SimpleData_Library</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +185,30 @@
     </ClInclude>
     <ClInclude Include="..\appcode\statistic.h">
       <Filter>appcode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SimpleData_Library\DBCsv.h">
+      <Filter>SimpleData_Library</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SimpleData_Library\DBGeneral.h">
+      <Filter>SimpleData_Library</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SimpleData_Library\DBSearch.h">
+      <Filter>SimpleData_Library</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SimpleData_Library\DBStruct.h">
+      <Filter>SimpleData_Library</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SimpleData_Library\DBAdmin.h">
+      <Filter>SimpleData_Library</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SimpleData_Library\MD5\MD5.h">
+      <Filter>SimpleData_Library\MD5</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SimpleData_Library\DBSecurity.h">
+      <Filter>SimpleData_Library</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SimpleData_Library\DBUAdmin.h">
+      <Filter>SimpleData_Library</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

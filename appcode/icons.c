@@ -169,5 +169,41 @@ void icon_Account(double rx, double ry) {
 	DrawLine(0.5, 0);
 }
 
+void icon_Front(double fx, double fy) {
+	string color = GetPenColor();
+	SetPenColor("Gray");
+	SetPenSize(4);
+	MovePen(fx, fy);
+	DrawArc(0.5, 90, 180);
+	MovePen(fx, fy);
+	DrawLine(2, 0);
+	MovePen(fx - 0.924 / 3, fy - 0.333);
+	DrawLine(2 + 0.924 / 3, 0);
+	MovePen(fx - 0.924 / 3, fy - 0.667);
+	DrawLine(2 + 0.924 / 3, 0);
+	MovePen(fx, fy - 1);
+	DrawLine(2.5, 0);
+	MovePen(fx + 2, fy);
+	DrawLine(0, -1);
+	MovePen(fx - 0.5, fy - 0.5);
+	DrawLine(0, -4);
+	MovePen(fx, fy - 1.5);
+	DrawLine(0, -3);
+	MovePen(fx - 0.5, fy - 4.5);
+	DrawArc(0.5, 180, 90);
+	MovePen(fx, fy - 5);
+	DrawLine(2.5, 0);
+	MovePen(fx + 2.5, fy - 1);
+	DrawLine(0, -4);
+	MovePen(fx + 1.5, fy - 1.25);
+	DrawLine(0, -1);
+	MovePen(fx + 1.5, fy - 1.25);
+	DrawLine(0.5, 0);
+	MovePen(fx + 2, fy - 2.25);
+	DrawLine(0, 1);
+	MovePen(fx + 2, fy - 2.25);
+	DrawLine(-0.5, 0);
+}
+
 
 

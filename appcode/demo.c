@@ -1,4 +1,6 @@
 #include "demo.h"
+#include "../SimpleData_Library/DBAdmin.h"
+#include "../SimpleData_Library//DBUAdmin.h"
 /*To load headfiles.*/
 
 // 我爱你
@@ -12,8 +14,30 @@ void ReturnPages();
 void ReturnAdministrator();
 void ReturnReader();
 
+static DB_Book* BookLibrary;
+static BKSelect* SLC;
+static DB_User* UserData;
+
 void Main()
 {
+	//读取数据库
+	BookLibrary = NewDBBook();
+	BookLibrary->ImportFromCSV(BookLibrary, "Library.csv");
+	BookLibrary->SelectAll(BookLibrary);
+	SLC = BookLibrary->pSelection;
+
+	//创建用户库，创建默认用户
+	UserData = NewUserDB();
+	UserInfo defaultInfo;
+	strcpy(defaultInfo.UserName, "default"); //默认用户名
+	strcpy(defaultInfo.Password, "password"); //默认密码
+	defaultInfo.gender = 'S';
+	strcpy(defaultInfo.orgnization, "ZJU");
+	defaultInfo.bookRelated = 0;
+	User* defaultUser = NewUser(defaultInfo);
+	UserData->Regist(UserData, defaultUser);
+
+
 	SetWindowTitle("Library Management System");
 	SetWindowSize(16, 12);
 	InitGraphics();
@@ -28,6 +52,7 @@ void Main()
 	//InitConsole(); 
 
 	//initiate pages
+	cover_page_flag = 1;
 	menu_flag = 1;
 	guide_page_flag = 0;
 	login_page_flag = 0;
@@ -93,6 +118,7 @@ void drawMenu()
 			if (!charactor) {
 				initial_Administrator_flag = 0;
 				checkreservation_page_flag = 1;
+				cover_page_flag = 0;
 			}
 		}
 		if(!login_status) {
@@ -107,6 +133,7 @@ void drawMenu()
 			if (!charactor) {
 				initial_Administrator_flag = 0;
 				readermanagement_page_flag = 1;
+				cover_page_flag = 0;
 			}
 		}
 		if (!login_status) {
@@ -121,6 +148,7 @@ void drawMenu()
 			if (!charactor) {
 				initial_Administrator_flag = 0;
 				statistic_page_flag = 1;
+				cover_page_flag = 0;
 			}
 		}
 		if (!login_status) {
@@ -140,6 +168,7 @@ void drawMenu()
 			if (!charactor) {
 				initial_Administrator_flag = 1;
 				bookedit_page_flag = 1;
+				cover_page_flag = 0;
 				addbookinformationwindow();
 			}
 		}
@@ -155,6 +184,7 @@ void drawMenu()
 			if (!charactor) {
 				initial_Administrator_flag = 0;
 				bookedit_page_flag = 1;
+				cover_page_flag = 0;
 			}
 		}
 		if (!login_status) {
@@ -169,6 +199,7 @@ void drawMenu()
 			if (!charactor) {
 				initial_Administrator_flag = 0;
 				bookedit_page_flag = 1;
+				cover_page_flag = 0;
 			}
 		}
 		if (!login_status) {
@@ -186,6 +217,7 @@ void drawMenu()
 			}
 			if (!charactor) {
 				sorry_page_flag_reader = 1;
+				cover_page_flag = 0;
 			}
 		}
 		if (!login_status) {
@@ -200,6 +232,7 @@ void drawMenu()
 			}
 			if (!charactor) {
 				sorry_page_flag_reader = 1;
+				cover_page_flag = 0;
 			}
 		}
 		if (!login_status) {
@@ -214,6 +247,7 @@ void drawMenu()
 			}
 			if (!charactor) {
 				sorry_page_flag_reader = 1;
+				cover_page_flag = 0;
 			}
 		}
 		if (!login_status) {
@@ -231,11 +265,14 @@ void drawMenu()
 		initial_Administrator_flag = 0;
 		initial_Reader_flag = 0;
 		login_status = 0;
+		cover_page_flag = 0;
 	}
 	if (selection == 2) {
 		signup_page_flag = 1;
 	}
 	if (selection == 3) {
+		UserData->Logout(UserData);
+		cover_page_flag = 1;
 		ReturnPages();
 	}
 
@@ -273,7 +310,9 @@ void drawMenu()
 			}
 		}
 		if (button(GenUIID(0), 14.5, 11.45, 1, 0.4, "Logout")) {
+			UserData->Logout(UserData);
 			ReturnPages();
+			cover_page_flag = 1;
 		}
 	}
 }
@@ -283,8 +322,7 @@ void display()
 	DisplayClear();
 
 	//cover
-	//cover_flag = 1;
-	if (cover_flag) {
+	if (cover_page_flag) {
 		cover_page();
 	}
 
@@ -293,7 +331,7 @@ void display()
 		login_page();
 	}
 	if (password_page_flag) {
-		password_page();
+		password_page(UserData);
 	}
 	if (initial_Administrator_flag) {
 		initialAdministrator();
@@ -302,10 +340,10 @@ void display()
 		initialReader();
 	}
 	if (bookreserve_page_flag) {
-		bookreserve_page();
+		bookreserve_page(BookLibrary,SLC);
 	}
 	if (bookedit_page_flag) {
-		bookedit_page();
+		bookedit_page(BookLibrary, SLC);
 	}
 	if (reservation_page_flag) {
 		reservation_page();
@@ -320,7 +358,7 @@ void display()
 		readermanagement_page();
 	}
 	if (statistic_page_flag) {
-		statistic_page();
+		statistic_page(BookLibrary);
 	}
 
 	//popupwindows

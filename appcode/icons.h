@@ -32,5 +32,6 @@ void icon_Reserve(double bx, double by);
 void icon_Reservation(double rx, double ry);
 void icon_Return(double bx, double by);
 void icon_Account(double rx, double ry);
+void icon_Front(double fx, double fy);
 
 #endif

@@ -1,3 +1,114 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(467,5): warning MSB8028: 中间目录(Debug\)包含从另一个项目(Demo.vcxproj)共享的文件。   这会导致错误的清除和重新生成行为。
+﻿  bookmanagement.c
+C:\Users\xiaoguogao\source\repos\ZUIHOU\appcode\bookmanagement.c(84,5): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\appcode\bookmanagement.c(245,39): warning C4996: '_itoa': This function or variable may be unsafe. Consider using _itoa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\appcode\bookmanagement.c(301,74): warning C4996: '_itoa': This function or variable may be unsafe. Consider using _itoa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\appcode\bookmanagement.c(326,57): warning C4996: '_itoa': This function or variable may be unsafe. Consider using _itoa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\appcode\bookmanagement.c(379,5): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\appcode\bookmanagement.c(530,5): warning C4996: '_itoa': This function or variable may be unsafe. Consider using _itoa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\appcode\bookmanagement.c(532,5): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\appcode\bookmanagement.c(534,5): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\appcode\bookmanagement.c(536,5): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\appcode\bookmanagement.c(538,5): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\appcode\bookmanagement.c(540,5): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\appcode\bookmanagement.c(542,5): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\appcode\bookmanagement.c(635,83): warning C4996: '_itoa': This function or variable may be unsafe. Consider using _itoa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  checkreservation.c
+  cover.c
   demo.c
-  myDemo.vcxproj -> C:\Users\xiaoguogao\source\repos\GXGProj\myProj\Debug\myDemo.exe
+  icons.c
+  initialfunction.c
+  linkedlist.c
+  loginpage.c
+C:\Users\xiaoguogao\source\repos\ZUIHOU\appcode\loginpage.c(37,3): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\appcode\loginpage.c(39,3): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  myborrow.c
+  myreservation.c
+  popupwindows.c
+  readermanagement.c
+C:\Users\xiaoguogao\source\repos\ZUIHOU\appcode\readermanagement.c(104,72): warning C4996: '_itoa': This function or variable may be unsafe. Consider using _itoa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  statistic.c
+C:\Users\xiaoguogao\source\repos\ZUIHOU\appcode\statistic.c(35,49): warning C4996: '_itoa': This function or variable may be unsafe. Consider using _itoa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\appcode\statistic.c(42,66): warning C4996: '_itoa': This function or variable may be unsafe. Consider using _itoa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\appcode\statistic.c(49,68): warning C4996: '_itoa': This function or variable may be unsafe. Consider using _itoa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\appcode\statistic.c(137,18): warning C4996: '_itoa': This function or variable may be unsafe. Consider using _itoa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\appcode\statistic.c(143,18): warning C4996: '_itoa': This function or variable may be unsafe. Consider using _itoa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\appcode\statistic.c(149,18): warning C4996: '_itoa': This function or variable may be unsafe. Consider using _itoa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\appcode\statistic.c(222,44): warning C4996: '_itoa': This function or variable may be unsafe. Consider using _itoa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\appcode\statistic.c(228,44): warning C4996: '_itoa': This function or variable may be unsafe. Consider using _itoa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  statusbar.c
+  exceptio.c
+C:\Users\xiaoguogao\source\repos\ZUIHOU\libgraphics\exceptio.c(69,9): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\libgraphics\exceptio.c(79,13): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  genlib.c
+C:\Users\xiaoguogao\source\repos\ZUIHOU\libgraphics\genlib.c(121,5): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\libgraphics\genlib.c(136,9): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  graphics.c
+C:\Users\xiaoguogao\source\repos\ZUIHOU\libgraphics\graphics.c(790,5): warning C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\libgraphics\graphics.c(791,5): warning C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\libgraphics\graphics.c(822,18): warning C4101: “consoleRect”: 未引用的局部变量
+C:\Users\xiaoguogao\source\repos\ZUIHOU\libgraphics\graphics.c(1260,59): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\xiaoguogao\source\repos\ZUIHOU\libgraphics\graphics.c(1261,63): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\xiaoguogao\source\repos\ZUIHOU\libgraphics\graphics.c(1262,61): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\xiaoguogao\source\repos\ZUIHOU\libgraphics\graphics.c(1648,58): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+  random.c
+  simpio.c
+C:\Users\xiaoguogao\source\repos\ZUIHOU\libgraphics\simpio.c(145,13): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\libgraphics\simpio.c(157,5): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  strlib.c
+C:\Users\xiaoguogao\source\repos\ZUIHOU\libgraphics\strlib.c(53,5): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\libgraphics\strlib.c(54,5): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\libgraphics\strlib.c(82,5): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\libgraphics\strlib.c(109,5): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\libgraphics\strlib.c(139,15): warning C4018: “>”: 有符号/无符号不匹配
+C:\Users\xiaoguogao\source\repos\ZUIHOU\libgraphics\strlib.c(152,15): warning C4018: “>”: 有符号/无符号不匹配
+C:\Users\xiaoguogao\source\repos\ZUIHOU\libgraphics\strlib.c(194,5): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\libgraphics\strlib.c(206,9): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\libgraphics\strlib.c(216,5): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\libgraphics\strlib.c(226,9): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  正在生成代码...
+  正在编译...
+  DBAdmin.c
+C:\Users\xiaoguogao\source\repos\ZUIHOU\SimpleData_Library\DBAdmin.c(135,17): warning C4028: 形参 2 与声明不同
+C:\Users\xiaoguogao\source\repos\ZUIHOU\SimpleData_Library\DBAdmin.c(267,31): warning C4018: “<”: 有符号/无符号不匹配
+  DBCsv.c
+C:\Users\xiaoguogao\source\repos\ZUIHOU\SimpleData_Library\DBCsv.c(110,56): warning C4047: “函数”:“char *”与“char (*)[64]”的间接级别不同
+C:\Users\xiaoguogao\source\repos\ZUIHOU\SimpleData_Library\DBCsv.c(110,56): warning C4024: “fgetCommaEndString”: 形参和实参 2 的类型不同
+C:\Users\xiaoguogao\source\repos\ZUIHOU\SimpleData_Library\DBCsv.c(111,57): warning C4047: “函数”:“char *”与“char (*)[48]”的间接级别不同
+C:\Users\xiaoguogao\source\repos\ZUIHOU\SimpleData_Library\DBCsv.c(111,57): warning C4024: “fgetCommaEndString”: 形参和实参 2 的类型不同
+C:\Users\xiaoguogao\source\repos\ZUIHOU\SimpleData_Library\DBCsv.c(112,56): warning C4047: “函数”:“char *”与“char (*)[48]”的间接级别不同
+C:\Users\xiaoguogao\source\repos\ZUIHOU\SimpleData_Library\DBCsv.c(112,56): warning C4024: “fgetCommaEndString”: 形参和实参 2 的类型不同
+C:\Users\xiaoguogao\source\repos\ZUIHOU\SimpleData_Library\DBCsv.c(113,59): warning C4047: “函数”:“char *”与“char (*)[24]”的间接级别不同
+C:\Users\xiaoguogao\source\repos\ZUIHOU\SimpleData_Library\DBCsv.c(113,59): warning C4024: “fgetCommaEndString”: 形参和实参 2 的类型不同
+C:\Users\xiaoguogao\source\repos\ZUIHOU\SimpleData_Library\DBCsv.c(115,58): warning C4047: “函数”:“char *”与“char (*)[32]”的间接级别不同
+C:\Users\xiaoguogao\source\repos\ZUIHOU\SimpleData_Library\DBCsv.c(115,58): warning C4024: “fgetCommaEndString”: 形参和实参 2 的类型不同
+C:\Users\xiaoguogao\source\repos\ZUIHOU\SimpleData_Library\DBCsv.c(116,56): warning C4047: “函数”:“char *”与“char (*)[24]”的间接级别不同
+C:\Users\xiaoguogao\source\repos\ZUIHOU\SimpleData_Library\DBCsv.c(116,56): warning C4024: “fgetCommaEndString”: 形参和实参 2 的类型不同
+C:\Users\xiaoguogao\source\repos\ZUIHOU\SimpleData_Library\DBCsv.c(123,57): warning C4047: “函数”:“char *”与“char (*)[24]”的间接级别不同
+C:\Users\xiaoguogao\source\repos\ZUIHOU\SimpleData_Library\DBCsv.c(123,57): warning C4024: “fgetCommaEndString”: 形参和实参 2 的类型不同
+  DBGeneral.c
+  DBSearch.c
+  DBStruct.c
+C:\Users\xiaoguogao\source\repos\ZUIHOU\SimpleData_Library\DBStruct.c(527,9): warning C4101: “i”: 未引用的局部变量
+C:\Users\xiaoguogao\source\repos\ZUIHOU\SimpleData_Library\DBStruct.c(608,19): warning C4018: “<”: 有符号/无符号不匹配
+C:\Users\xiaoguogao\source\repos\ZUIHOU\SimpleData_Library\DBStruct.c(616,23): warning C4018: “<”: 有符号/无符号不匹配
+  MD5.c
+  DBUAdmin.c
+  DBSecurity.c
+  imgui.c
+C:\Users\xiaoguogao\source\repos\ZUIHOU\simpleGUI\imgui.c(130,12): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\simpleGUI\imgui.c(131,12): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\simpleGUI\imgui.c(132,15): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\simpleGUI\imgui.c(133,15): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\simpleGUI\imgui.c(139,12): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\simpleGUI\imgui.c(140,12): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\simpleGUI\imgui.c(141,15): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\simpleGUI\imgui.c(142,15): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\simpleGUI\imgui.c(148,12): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\simpleGUI\imgui.c(149,12): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\simpleGUI\imgui.c(150,15): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\xiaoguogao\source\repos\ZUIHOU\simpleGUI\imgui.c(151,15): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  正在生成代码...
+C:\Users\xiaoguogao\source\repos\ZUIHOU\SimpleData_Library\DBStruct.c(53): warning C4715: “Day_of_Month”: 不是所有的控件路径都返回值
+C:\Users\xiaoguogao\source\repos\ZUIHOU\SimpleData_Library\DBAdmin.c(704): warning C4716: “select_exact_book_record”: 必须返回一个值
+  HSL2RGB.h
+  myDemo.vcxproj -> C:\Users\xiaoguogao\source\repos\ZUIHOU\myProj\Debug\myDemo.exe

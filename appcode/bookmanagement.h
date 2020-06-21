@@ -23,12 +23,14 @@
 #include "imgui.h"
 #include "global.h"
 
+#include "../SimpleData_Library/DBAdmin.h"
+
 void searchbooks_by();
 void booksorder_filter();
 void DrawBooks(int x);
-void bookreserve_page();
+void bookreserve_page(DB_Book* Library, BKSelect* SLC);
 void showbookinformationwindow(int x);
-void bookedit_page();
+void bookedit_page(DB_Book* Library, BKSelect* SLC);
 void editbookinformationwindow(int x);
 void addbookinformationwindow();
 #endif

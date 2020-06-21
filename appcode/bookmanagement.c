@@ -1,7 +1,9 @@
 #include "bookmanagement.h"
+#include "../SimpleData_Library/DBAdmin.h"
+#include "../SimpleData_Library/DBGeneral.h"
 
 //myBook info struct
-struct myBook {
+static struct myBook {
 	double cx, cy;
 	string ISBNcode;
 	string Title;
@@ -14,8 +16,11 @@ struct myBook {
 	bool isbookinformationshow;
 	int collectnum;
 
+	//储存书在数据库里的指针
+	BookEx* route;
+
 }GXGBook[10];
-char searchKeyword[20] = "";
+char searchKeyword[64] = "";
 double stateinterval = 1.2;
 bool showbook_flag = 0;
 bool isaddbookinformationshow = 0;
@@ -41,7 +46,10 @@ struct statebutton {
 
 //book struct
 
-void bookreserve_page() {
+void bookreserve_page(DB_Book* Library, BKSelect* SLC) {
+
+	SLC = Library->pSelection;
+
 	setTextBoxColors("Light Gray", "Black", "Gray", "Black", 0);
 	if (textbox(GenUIID(0), 4, 10, 4.5, 0.5, searchKeyword, sizeof(searchKeyword))) {
 
@@ -51,31 +59,75 @@ void bookreserve_page() {
 	usePredefinedButtonColors(4);
 
 	//Search Button
+	int selected_count;
 	if (button(GenUIID(0), 9, 10, buttonWidth, buttonHeight, "Search")) {
 		select_status = "";
 		showbook_flag = 1;
+
+		//实现查找
+		if (searchKeyword[0] != 0) {
+			Library->ResetSelection(Library);
+			if (state_title.state) {
+				selected_count = Library->SelectBy(Library, "Title", searchKeyword, LG_AND);
+				Library->SoltSelection(Library);
+			}
+			else if (state_author.state)
+				selected_count = Library->SelectBy(Library, "Author", searchKeyword, LG_AND);
+			else if (state_keyword.state)
+				selected_count = Library->SelectBy(Library, "Keyword", searchKeyword, LG_AND);
+			else
+				selected_count = Library->SelectBy(Library, "Title", searchKeyword, LG_AND);//不选择默认Title
+			SLC = Library->pSelection;
+			if (selected_count > 0) {
+				char num[16]; char notic[64] = "找到了";
+				TransToStr(selected_count, num);
+				strcat(notic, num); strcat(notic, "条结果.");
+				Call_Promote(notic);
+			}
+		}
+		else {
+			Library->SelectAll(Library);
+			SLC = Library->pSelection;
+		}
 	}
 
 	//initial booklist
-	for (int x = 0; x < k; x++) {
+	int all_book_selected = 0;
+	for (int x = 0; x < k && SLC != NULL; x++) {
+		all_book_selected++;
+
 		GXGBook[x].cx = 2;
 		GXGBook[x].cy = 7.5 - x * 0.5;
 
-		GXGBook[x].ISBNcode = "9787100000000";
-		GXGBook[x].Title = "大威天龙";
-		GXGBook[x].Author = "法海";
-		GXGBook[x].Press = "金山寺";
-		GXGBook[x].Publicationdate = 2020;
-		GXGBook[x].Class = "Fiction";
-		GXGBook[x].Keywords = "大威天龙 大罗法咒 世尊地藏";
-		GXGBook[x].State = 1;
+		GXGBook[x].ISBNcode = SLC->SelectedItem->Info.ISBNcode;
+		GXGBook[x].Title = SLC->SelectedItem->Info.Title;
+		GXGBook[x].Author = SLC->SelectedItem->Info.Author;
+		GXGBook[x].Press = SLC->SelectedItem->Info.Press;
+		GXGBook[x].Publicationdate = SLC->SelectedItem->Info.PublicationDATE.Year;
+		GXGBook[x].Class = SLC->SelectedItem->Info.Class;
+		GXGBook[x].Keywords = SLC->SelectedItem->Info.KeyWord;
+		//数据转接
+		switch (SLC->SelectedItem->Info.Status)
+		{
+		case BK_Avaliable:
+			GXGBook[x].State = 1;
+			break;
+		case BK_Reserved:
+			GXGBook[x].State = 0;
+			break;
+		case BK_Borrowed:
+			GXGBook[x].State = 2;
+			break;
+		}
+		GXGBook[x].collectnum = SLC->SelectedItem->Info.Stars;
+		GXGBook[x].route = SLC->SelectedItem;
 
-		GXGBook[x].collectnum = 56;
+		SLC = SLC->Next;	
 	}
 
 	//show booklist
 	if (showbook_flag) {
-		DrawBooks(k);
+		DrawBooks(all_book_selected);
 	}
 
 	//Search By
@@ -120,8 +172,10 @@ void bookreserve_page() {
 
 void searchbooks_by() {
 	//state_isbn
-	if (state_isbn.state)setButtonColors("Gray", "Red", "Dark Gray", "Yellow", 1);
-	else if (!state_isbn.state)usePredefinedButtonColors(4);
+	if (state_isbn.state)
+		setButtonColors("Gray", "Red", "Dark Gray", "Yellow", 1);
+	else if (!state_isbn.state) 
+		usePredefinedButtonColors(4);
 	if (button(GenUIID(0), 5.8, 9.25, buttonWidth / 2, buttonHeight, "ISBN")) {
 		select_status = "";
 		state_isbn.state = !state_isbn.state;
@@ -229,10 +283,10 @@ void showbookinformationwindow(int x) {
 			case 1:
 				Statestring = "Reservable";
 				break;
-			case 2:
+			case 0:
 				Statestring = "Reserved";
 				break;
-			case 3:
+			case 2:
 				Statestring = "Borrowed";
 				break;
 			default:
@@ -250,7 +304,7 @@ void showbookinformationwindow(int x) {
 			drawMidLabel(infox + 2.5, infoy - infointerval * 7, infowid * 2, 0.5, Statestring, 'L', "Black");
 
 			setButtonColors("White", "Light Gray", "Light Gray", "Gray", 1);
-			int collected = GXGBook[n].collectnum + 1;
+			int collected = GXGBook[n].collectnum;
 			if (iscollect.state) {
 				setButtonColors("Light Gray", "Orange", "Gray", "Red", 1);
 			}
@@ -258,6 +312,13 @@ void showbookinformationwindow(int x) {
 				setButtonColors("White", "Light Gray", "Light Gray", "Gray", 1);
 			}
 			if (star_button(GenUIID(0), 11.5, 9, 0.25)) {
+				if (!iscollect.state) {
+					GXGBook[n].route->Like(GXGBook[n].route);
+					Sleep(100);
+				}
+				else {
+					GXGBook[n].route->Info.Stars--;
+				}
 				select_status = "";
 				iscollect.state = !iscollect.state;
 			}
@@ -280,7 +341,10 @@ void showbookinformationwindow(int x) {
 
 }
 
-void bookedit_page() {
+void bookedit_page(DB_Book* Library, BKSelect* SLC) {
+
+	SLC = Library->pSelection;
+
 	setTextBoxColors("Light Gray", "Black", "Gray", "Black", 0);
 	if (textbox(GenUIID(0), 3, 10, 4.5, 0.5, searchKeyword, sizeof(searchKeyword))) {
 
@@ -290,9 +354,36 @@ void bookedit_page() {
 	usePredefinedButtonColors(4);
 
 	//Search Button
+	int selected_count;
 	if (button(GenUIID(0), 8, 10, buttonWidth, buttonHeight, "Search")) {
 		select_status = "";
 		showbook_flag = 1;
+
+		//实现查找
+		if (searchKeyword[0] != 0) {
+			Library->ResetSelection(Library);
+			if (state_title.state) {
+				selected_count = Library->SelectBy(Library, "Title", searchKeyword, LG_AND);
+				Library->SoltSelection(Library);
+			}
+			else if (state_author.state)
+				selected_count = Library->SelectBy(Library, "Author", searchKeyword, LG_AND);
+			else if (state_keyword.state)
+				selected_count = Library->SelectBy(Library, "Keyword", searchKeyword, LG_AND);
+			else
+				selected_count = Library->SelectBy(Library, "Title", searchKeyword, LG_AND);//不选择默认Title
+			SLC = Library->pSelection;
+			if (selected_count > 0) {
+				char num[16]; char notic[64] = "找到了";
+				TransToStr(selected_count, num);
+				strcat(notic, num); strcat(notic, "条结果.");
+				Call_Promote(notic);
+			}
+		}
+		else {
+			Library->SelectAll(Library);
+			SLC = Library->pSelection;
+		}
 	}
 
 	//Add Button
@@ -303,21 +394,37 @@ void bookedit_page() {
 
 
 	//initial booklist
+	int all_book_selected = 0;
+	for (int x = 0; x < k && SLC != NULL; x++) {
+		all_book_selected++;
 
-	for (int x = 0; x < k; x++) {
 		GXGBook[x].cx = 2;
 		GXGBook[x].cy = 7.5 - x * 0.5;
 
-		GXGBook[x].ISBNcode = "9787100000000";
-		GXGBook[x].Title = "大威天龙";
-		GXGBook[x].Author = "法海";
-		GXGBook[x].Press = "金山寺";
-		GXGBook[x].Publicationdate = 2020;
-		GXGBook[x].Class = "Fiction";
-		GXGBook[x].Keywords = "大威天龙 大罗法咒 世尊地藏";
-		GXGBook[x].State = 1;
+		GXGBook[x].ISBNcode = SLC->SelectedItem->Info.ISBNcode;
+		GXGBook[x].Title = SLC->SelectedItem->Info.Title;
+		GXGBook[x].Author = SLC->SelectedItem->Info.Author;
+		GXGBook[x].Press = SLC->SelectedItem->Info.Press;
+		GXGBook[x].Publicationdate = SLC->SelectedItem->Info.PublicationDATE.Year;
+		GXGBook[x].Class = SLC->SelectedItem->Info.Class;
+		GXGBook[x].Keywords = SLC->SelectedItem->Info.KeyWord;
+		//数据转接
+		switch (SLC->SelectedItem->Info.Status)
+		{
+		case BK_Avaliable:
+			GXGBook[x].State = 1;
+			break;
+		case BK_Reserved:
+			GXGBook[x].State = 0;
+			break;
+		case BK_Borrowed:
+			GXGBook[x].State = 2;
+			break;
+		}
+		GXGBook[x].collectnum = SLC->SelectedItem->Info.Stars;
+		GXGBook[x].route = SLC->SelectedItem;
 
-		GXGBook[x].collectnum = 56;
+		SLC = SLC->Next;
 	}
 
 	//show booklist

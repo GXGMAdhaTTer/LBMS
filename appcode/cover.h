@@ -22,6 +22,7 @@
 #include "linkedlist.h"
 #include "imgui.h"
 #include "global.h"
+#include "icons.h"
 
 void cover_page();
 

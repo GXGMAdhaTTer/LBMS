@@ -32,6 +32,14 @@
     <ClCompile Include="..\libgraphics\random.c" />
     <ClCompile Include="..\libgraphics\simpio.c" />
     <ClCompile Include="..\libgraphics\strlib.c" />
+    <ClCompile Include="..\SimpleData_Library\DBAdmin.c" />
+    <ClCompile Include="..\SimpleData_Library\DBCsv.c" />
+    <ClCompile Include="..\SimpleData_Library\DBGeneral.c" />
+    <ClCompile Include="..\SimpleData_Library\DBSearch.c" />
+    <ClCompile Include="..\SimpleData_Library\DBStruct.c" />
+    <ClCompile Include="..\SimpleData_Library\MD5\MD5.c" />
+    <ClCompile Include="..\SimpleData_Library\DBUAdmin.c" />
+    <ClCompile Include="..\SimpleData_Library\DBSecurity.c" />
     <ClCompile Include="..\simpleGUI\imgui.c" />
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +66,14 @@
     <ClInclude Include="..\libgraphics\random.h" />
     <ClInclude Include="..\libgraphics\simpio.h" />
     <ClInclude Include="..\libgraphics\strlib.h" />
+    <ClInclude Include="..\SimpleData_Library\DBAdmin.h" />
+    <ClInclude Include="..\SimpleData_Library\DBCsv.h" />
+    <ClInclude Include="..\SimpleData_Library\DBGeneral.h" />
+    <ClInclude Include="..\SimpleData_Library\DBSearch.h" />
+    <ClInclude Include="..\SimpleData_Library\DBStruct.h" />
+    <ClInclude Include="..\SimpleData_Library\DBUAdmin.h" />
+    <ClInclude Include="..\SimpleData_Library\MD5\MD5.h" />
+    <ClInclude Include="..\SimpleData_Library\DBSecurity.h" />
     <ClInclude Include="..\simpleGUI\imgui.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
